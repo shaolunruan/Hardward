@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+        .form-control{
+            width:70%;
+            margin:0 auto
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <tmp-timestamp></tmp-timestamp>
+        <!-- //此文件按照组件来编写 -->
+
+    </div>
+
+    <template id="tmp1">
+        <div style="width: 600px">
+            <!-- 项目中需要修改 -->
+            <select class="form-control" v-model="timeStamp">
+                <!-- 将选择框在div父元素中居中显示 -->
+                <option :value="coupon.id" v-for="coupon in couponList">{{coupon.name}}</option>
+
+            </select>
+        </div>
+    </template>
+
+    <script>
+
+        Vue.component('tmp-timestamp',{
+            template:'#tmp1',
+            data:function(){
+                return{
+                    // 之后研究方法，如何根据后端数据库动态更新，可以使用模板引擎
+                    couponList:[
+                        {
+                            id: 'A',
+                            name: '优惠券1'
+                        },
+                        {
+                            id: '1',
+                            name: '优惠券2'
+                        },
+                        {
+                            id: '2',
+                            name: '优惠券3'
+                        }
+                    ],
+                    timeStamp: ''
+                }
+            }
+            
+        })
+        
+
+        var vm=new Vue({
+           el:'#app',
+           data:{},
+           methods:{}
+        });
+    </script>
+</body>
+
+</html>

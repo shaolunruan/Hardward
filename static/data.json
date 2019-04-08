@@ -1,0 +1,20 @@
+{
+    "server_event":[
+        
+        {"timestamp": "20170204013", "machineID": "1", "event_type": "add", "event_detail": "", "capacity_CPU": "0.64", "capacity_memory": "0.6899697150104833", "capacity_disk": "1"},
+        {"timestamp": "20170204465", "machineID": "2", "event_type": "add", "event_detail": "", "capacity_CPU": "0.65", "capacity_memory": "0.6899697150104833", "capacity_disk": "1"},
+        {"timestamp": "20170204145", "machineID": "3", "event_type": "add", "event_detail": "", "capacity_CPU": "0.36", "capacity_memory": "0.6899697150104833", "capacity_disk": "1"},
+        {"timestamp": "20170204465", "machineID": "4", "event_type": "add", "event_detail": "", "capacity_CPU": "0.48", "capacity_memory": "0.6899697150104833", "capacity_disk": "1"},
+        {"timestamp": "20170204159", "machineID": "5", "event_type": "add", "event_detail": "", "capacity_CPU": "0.56", "capacity_memory": "0.6899697150104833", "capacity_disk": "1"},
+        {"timestamp": "20170204789", "machineID": "6", "event_type": "add", "event_detail": "", "capacity_CPU": "0.45", "capacity_memory": "0.6899697150104833", "capacity_disk": "1"},
+        {"timestamp": "20170204052", "machineID": "7", "event_type": "add", "event_detail": "", "capacity_CPU": "0.89", "capacity_memory": "0.6899697150104833", "capacity_disk": "1"},
+        {"timestamp": "20170204363", "machineID": "8", "event_type": "add", "event_detail": "", "capacity_CPU": "0.75", "capacity_memory": "0.6899697150104833", "capacity_disk": "1"},
+        {"timestamp": "20170204451", "machineID": "9", "event_type": "add", "event_detail": "", "capacity_CPU": "0.16", "capacity_memory": "0.6899697150104833", "capacity_disk": "1"},
+        {"timestamp": "20170204285", "machineID": "10", "event_type": "add", "event_detail": "", "capacity_CPU": "0.28", "capacity_memory": "0.6899697150104833", "capacity_disk": "1"},
+        {"timestamp": "20170204963", "machineID": "1148", "event_type": "add", "event_detail": "", "capacity_CPU": "0.79", "capacity_memory": "0.6900059534594777", "capacity_disk": "1"},
+        {"timestamp": "20170204748", "machineID": "1149", "event_type": "add", "event_detail": "", "capacity_CPU": "0.60", "capacity_memory": "0.6900059534594777", "capacity_disk": "1"},
+        {"timestamp": "20170204203", "machineID": "1150", "event_type": "add", "event_detail": "", "capacity_CPU": "0.54", "capacity_memory": "0.6900059534594777", "capacity_disk": "1"}
+      
+        
+    ]
+}
