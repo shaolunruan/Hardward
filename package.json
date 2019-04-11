@@ -6,19 +6,23 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --open --port 8079 --hot --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "start": "nodemon ./server/app.js",
     "unit": "jest --config test/unit/jest.conf.js --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
     "build": "node build/build.js",
     "wpdev": "webpack --mode development",
-    "wpbuild": "webpack --mode production"
+    "wpbuild": "webpack --mode production",
+    "prod": "node --max-old-space-size=100000000 node_modules\\@angular\\cli\\bin\\ng build --prod "
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "echarts": "^4.2.1",
     "echarts-liquidfill": "^2.0.4",
+    "http-proxy-middleware": "^0.19.1",
     "mongoose": "^5.4.22",
     "vue": "^2.5.2",
+    "vue-axios": "^2.1.4",
     "vue-router": "^3.0.1",
     "vuescroll": "^4.11.2"
   },

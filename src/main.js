@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import Echarts from "echarts"
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 import App from "./App.vue"
 
@@ -9,16 +11,13 @@ import './assets/css/bootstrap.min.css'
 
 
 
-// new Vue({
-//     render: h => h(App)
-// }).$mount("#app")
-
 //使用vue-resource(不光要引入)
- Vue.use(VueResource)
+Vue.use(VueResource)
 
-//使用vuescroll滚动条，全局配置及其使用
-//  Vue.use(vueScroller);
-//废弃，暂时使用Bootstrap自带的滚动条
+// Vue.use(VueAxios,axios)
+Vue.prototype.axios = axios
+// axios.defaults.baseURL = '/api'
+
 
 // Vue.use(echarts)
 // Vue.component('chart', echarts)

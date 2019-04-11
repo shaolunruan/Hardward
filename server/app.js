@@ -1,6 +1,11 @@
 var express = require('express');
+// var proxy = require('http-proxy-middleware')
+
 var routers = require('./routes/index.js');
 var metaModel = require('./db/model/meta');
+var usageModel = require('./db/model/usage');
+var resultModel = require('./db/model/result')
+
 
 require('./db/db');
 
@@ -8,73 +13,7 @@ var app = new express();
 
 routers(app);
 
-app.listen(8097);
-
-
-
-
-
-
-
-//数据的增加
-
-// var meta = new metaModel({
-
-//     machine_id: '张三666',
-//     time_stamp: -1,//代表测试生成的假数据
-//     disaster_level_1: 13,
-//     disaster_level_2: 13,
-//     cpu_num: 96,
-//     mem_size: 100,
-//     status: 'USING'
-// })
-
-// meta.save(function(err){
-//     if(err){
-
-//         console.log(err);
-//         return;
-
-//     }
-
-//     console.log('增加数据成功');
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.listen(3000);
 
 
 

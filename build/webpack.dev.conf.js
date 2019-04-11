@@ -10,13 +10,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 
+
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
-//导入JSON数据
-const testData = require('../static/data.json')
-//引入Json数据表中的server_event对象
-const server_event = testData.server_event
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -28,11 +25,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   // these devServer options should be customized in /config/index.js
   devServer: {
     clientLogLevel: 'warning',
-    historyApiFallback: {
-      rewrites: [
-        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
-      ],
-    },
+    // historyApiFallback: {
+    //   rewrites: [
+    //     { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
+    //   ],
+    // },
     hot: true,
     contentBase: false, // since we use CopyWebpackPlugin.
     compress: true,
@@ -42,22 +39,34 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     overlay: config.dev.errorOverlay
       ? { warnings: false, errors: true }
       : false,
-    publicPath: config.dev.assetsPublicPath,
-    proxy: config.dev.proxyTable,
+    // publicPath: config.dev.assetsPublicPath,
+    // proxy: config.dev.proxyTable,
+
+    proxy:{
+      '/meta':{target:'http://localhost:3000',changeOrigin:true},
+      '/usage':{target:'http://localhost:3000',changeOrigin:true},
+      '/result':{target:'http://localhost:3000',changeOrigin:true}
+
+
+    },
+    //   '/result':{target:'http://localhost:3000'},
+    //   changeOrigin:true},
+
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
-    },
-    before(app) {
- 
-      app.get('/api/server_event', (req, res) => {
-        res.json({
-          errno: 0,
-          data: server_event
-        })//接口返回json数据，上面配置的数据seller就赋值给data请求后调用
-      })
- 
     }
+    // ,
+    // before(app) {
+ 
+    //   app.get('/api/server_event', (req, res) => {
+    //     res.json({
+    //       errno: 0,
+    //       data: server_event
+    //     })//接口返回json数据，上面配置的数据seller就赋值给data请求后调用
+    //   })
+ 
+    // }
   },
   plugins: [
     new webpack.DefinePlugin({

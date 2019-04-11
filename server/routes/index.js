@@ -1,4 +1,9 @@
-var metaModel = require('../db/model/meta')
+var metaModel = require('../db/model/meta');
+var usageModel = require('../db/model/usage');
+var resultModel = require('../db/model/result');
+
+var result = require('../db/model/result')
+
 
 module.exports = function(app){     
 
@@ -6,14 +11,32 @@ module.exports = function(app){
         res.send('Hello,here is /')
     });
 
-    //获取数据
-    app.get('/meta',function(req,res,next){
-        metaModel.find({}).exec((err,itemList)=>{
+    //获取meta数据
+    // app.get('/api',function(req,res){
+    //     metaModel.find({}).exec((err,metaList)=>{
+    //         if(err){
+    //             console.log(err);
+    //         }else{
+    //             res.json(metaList);
+    //         }
+    //     })
+    // });
+
+
+    app.get('/meta',function(req,res){
+        metaModel.find({}).exec((err,metaList)=>{
             if(err){
                 console.log(err);
             }else{
-                res.json(itemList);
+                res.json(metaList);
             }
         })
     });
+
+
+    //获取usage数据
+    app.get('/usage',require('./usage'))
+
+    //获取result数据
+    app.get('/result',require('./result'));
 }
