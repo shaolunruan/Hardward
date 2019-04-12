@@ -181,19 +181,13 @@ Vue.prototype.axios = axios
         github成功上传代码//完成
         用前台拿到的数据写组件//ing。。。
         保存vscode插件配置并重新安装//完成
-
-   calendar: [
-    {
-        range: '2016',//['2011-01-01', '2011-12-31'],//'2011',
-        cellSize: ['auto', 15],
-        left: 70,
-        right: 30,
-        splitLine:{
-            show:false
-        },
-        dayLabel:{
-            show:false
-        },
-        monthLabel:{
-            show:false}
-    }],
+**************
+4.12
+又要写今天的项目日志啦~
+今天呢，主要实现了 
+    将echarts的日历图搞清楚是个啥子
+    成功将日历图在vuedecomponents里跑通
+    然后拿着前台的数据，设计js算法 来构成echarts所需的数据结构
+感觉还是要每个组件单独写一个数据接口
+明天继续加油！
+争取早上画出日历图，下午开始force-directed-tree的构造

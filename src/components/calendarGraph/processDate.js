@@ -26,23 +26,34 @@ module.exports = function(Json){
             startTime.setDate(startTime.getDate() + 1);
             counter= counter+1;
         }
-        console.log(counter);
+        // console.log(counter);
         return(dateArr)
         
     }
     //s最后一天不输出，闰年366天
     getDiffDate('2016-1-1','2017-1-1')
 
-    //编辑算法，求出异常域
+    //编辑算法，求出异常域，d表示一条数据
+    function warningValue(d){
+        var value0 = d.cpu_util_percent*(96/138)+d.mem_util_percent*(49/138)+d.disk_io_percent*(131/138);
+        //算法后期弥补，可能得出的结果会不合理
+        return value0;
+
+    }
 
     //按以上算法算出前366个值，放进Array里
+
+    var value = new Array()
+    for(var i = 0;i<366;i++){
+        value[i] = warningValue(Json[i]);
+    }
     
     //构建二维数组，第一维用以上生成的日期，第二位用数据接口的数据
     var data = new Array();
-    for(var i = 0;i<367;i++){
+    for(var i = 1;i<367;i++){
         data[i] = new Array();
             data[i][0] = dateArr[i];
-            data[i][1] = 0;
+            data[i][1] = value[i];
     }
     
     console.log(data);
