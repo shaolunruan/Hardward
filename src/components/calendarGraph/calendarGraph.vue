@@ -14,11 +14,15 @@ export default {
         }
     },
 
-    mounted(){
-        this.axios.get('/result')
+    created(){
+        this.$axios.get('/usage')
         .then((response)=>{
             this.content = response.data;
+            console.log(this.content);
         })
+
+    },
+    methods:{
 
     }
 }

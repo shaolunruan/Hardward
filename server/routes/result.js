@@ -1,7 +1,7 @@
 var resultModel = require('../db/model/result')
 
 function test(req,res,next){
-    (resultModel.find({'start_time':{$lt:82000}})).find({'end_time':{$gt:82000}})
+    (resultModel.find({'start_time':{$lt:100120}})).find({'end_time':{$gt:100120}})
     .then(result=>{
         res.json(result)
     })

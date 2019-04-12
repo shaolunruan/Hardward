@@ -18,4 +18,4 @@ var resultSchema = mongoose.Schema({
 
 })
 
-module.exports = mongoose.model('result',resultSchema,'resultDay1')
+module.exports = mongoose.model('result',resultSchema,'resultDay2')

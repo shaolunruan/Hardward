@@ -15,12 +15,12 @@ import './assets/css/bootstrap.min.css'
 Vue.use(VueResource)
 
 // Vue.use(VueAxios,axios)
-Vue.prototype.axios = axios
+Vue.prototype.$axios = axios
 // axios.defaults.baseURL = '/api'
 
 
-// Vue.use(echarts)
-// Vue.component('chart', echarts)
+Vue.use(Echarts)
+Vue.component('chart', Echarts)
 
 //把Echarts绑定在Vue原型上，这样组建里面就可以通过this.$echarts来访问了
 Vue.prototype.$echarts = Echarts

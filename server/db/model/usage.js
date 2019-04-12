@@ -64,4 +64,4 @@ var usageSchema = mongoose.Schema({
 
 // 定义model操作数据库
 
-module.exports = mongoose.model('usage',usageSchema,'usageDay1');
+module.exports = mongoose.model('usage',usageSchema,'usageDay2');
