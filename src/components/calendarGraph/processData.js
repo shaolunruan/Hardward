@@ -33,6 +33,17 @@ module.exports = function(Json){
     //s最后一天不输出，闰年366天
     getDiffDate('2016-1-1','2017-1-1')
 
+    //删去010月的改为10
+    for(var i = 0;i<366;i++){
+        var a = dateArr[i].split('-');
+        if(a[1] == '010'){
+            a[1]=10;
+        }
+        var b = a.join('-');
+        dateArr[i] = b;
+    }
+/////////////////////////////////////////dateArr
+
     //编辑算法，求出异常域，d表示一条数据
     function warningValue(d){
         var value0 = d.cpu_util_percent*(96/138)+d.mem_util_percent*(49/138)+d.disk_io_percent*(131/138);
@@ -48,13 +59,17 @@ module.exports = function(Json){
         value[i] = warningValue(Json[i]);
     }
     
+//////////////////////////////////////////////value
+
     //构建二维数组，第一维用以上生成的日期，第二位用数据接口的数据
     var data = new Array();
-    for(var i = 1;i<367;i++){
+    for(var i = 0;i<366;i++){
         data[i] = new Array();
             data[i][0] = dateArr[i];
             data[i][1] = value[i];
     }
     
-    console.log(data);
+    //明天修改一下前台取数据的算法
+
+    return data;
 }

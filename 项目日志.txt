@@ -191,3 +191,4 @@ Vue.prototype.axios = axios
 感觉还是要每个组件单独写一个数据接口
 明天继续加油！
 争取早上画出日历图，下午开始force-directed-tree的构造
+还有别忘了看mongoose的夺标联合查询
