@@ -21,7 +21,7 @@ export default {
 
         paintCalendar() {
             var chart = this.$echarts.init(document.getElementById('calendar'));
-
+            console.log('paint',this.data)
             var option = {
     title: {
         top: 5,
@@ -77,7 +77,7 @@ export default {
         type: 'heatmap',
         coordinateSystem: 'calendar',
         calendarIndex: 2,
-        data: this.data0
+        data: this.data
     }]
 
 };
@@ -87,18 +87,13 @@ export default {
     },
 
     mounted() {
-
-        this.paintCalendar();
-    },
-
-    created() {
-        this.$axios.get('/usage')
+       this.$axios.get('/usage')
             .then((response) => {
                 this.data = processData(response.data);
-              
+                                this.paintCalendar();
             })
-            
     }
+
 
 }
 </script>
