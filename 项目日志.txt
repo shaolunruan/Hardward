@@ -192,3 +192,8 @@ Vue.prototype.axios = axios
 明天继续加油！
 争取早上画出日历图，下午开始force-directed-tree的构造
 还有别忘了看mongoose的夺标联合查询
+*******************
+4.14
+后期调试
+    VS code debugger
+    vue-devtools
