@@ -25,6 +25,8 @@ Vue.component('chart', Echarts)
 //把Echarts绑定在Vue原型上，这样组建里面就可以通过this.$echarts来访问了
 Vue.prototype.$echarts = Echarts
 
+// Vue.prototype.d3  = d3
+
 
 
 new Vue({

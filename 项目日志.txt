@@ -197,3 +197,4 @@ Vue.prototype.axios = axios
 后期调试
     VS code debugger
     vue-devtools
+钩子函数没有定义，大所属情况是在引用时没有写this.function
