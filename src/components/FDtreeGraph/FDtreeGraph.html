@@ -30,7 +30,7 @@ var canvas = document.querySelector("canvas"),
     height = canvas.height;
 
 d3.select(canvas)
-    .call(d3.drag()
+      .call(d3.drag()
         .container(canvas)
         .subject(dragsubject)
         .on("start", dragstarted)
@@ -82,7 +82,7 @@ function drawLink(d) {
   context.lineTo(d.target.x, d.target.y);
 }
 
-function drawNode(d) {
+function drawNode(d){
   context.moveTo(d.x + 3, d.y);
   context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
 }

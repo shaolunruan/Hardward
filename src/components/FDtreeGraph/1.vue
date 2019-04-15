@@ -51,7 +51,8 @@ var canvas = document.querySelector("canvas"),
     height = canvas.height;
 
 d3.select(canvas)
-    .call(d3.drag()
+    .call(
+        d3.drag()
         .container(canvas)
         .subject(dragsubject)
         .on("start", dragstarted)
