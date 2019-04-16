@@ -1,5 +1,7 @@
 //mongoose aggregate 管道聚合
 //正则表达式
+//Object.keys(obj).forEach(x => st.has(obj[x]) ? delete obj[x] : st.add(obj[x]))
+    这种玩意儿
 
 3.20
     要确定怎么编写组件，现在是直接在html里生成，下一步要知道怎么以导入组件的方式去执行
@@ -216,4 +218,4 @@ Vue.prototype.axios = axios
 
 错误记录：504 (Gateway Timeout)
     解决方法：没有打开后端服务器
-    
+以后传git的时候，提交的时候，就不用的着写commit了，在vscode里面写就行

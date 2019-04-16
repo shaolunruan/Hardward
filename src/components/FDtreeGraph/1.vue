@@ -33,7 +33,7 @@ export default {
 
   mounted(){
     
-    console.log(typeof links)
+    this.content = links
   }
 
 }

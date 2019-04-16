@@ -12,75 +12,131 @@ var exist = new Array();
 var index = new Array()
 
 // for(let i in list){
-	// let field = 'inst_name';
+    // let field = 'inst_name';
+//在开头插入一个源节点origin
+var origin = 'origin'
+index.unshift('origin')
+index.unshift('0')
+
+//////////////////////////////
 for(let j in Json){
-	if(exist.indexOf(Json[j].inst_name )== -1){
-		index.push(Json[j].inst_name);//小改改;
-		exist.push(Json[j].inst_name);
-	}
+    if(exist.indexOf(Json[j].inst_name )== -1){
+        index.push(Json[j].inst_name);//小改改;
+        exist.push(Json[j].inst_name);
+    }
 }
 // }
 
 // for(let i in list){
-	// let field = 'inst_name';
+    // let field = 'inst_name';
 for(let j in Json){
-	if(exist.indexOf(Json[j].task_name )== -1){
-		index.push(Json[j].task_name);//小改改;
-		exist.push(Json[j].task_name);
-	}
+    if(exist.indexOf(Json[j].task_name )== -1){
+        index.push(Json[j].task_name);//小改改;
+        exist.push(Json[j].task_name);
+    }
 }
 // }
 
 
 // for(let i in list){
-	// let field = 'inst_name';
+    // let field = 'inst_name';
 for(let j in Json){
-	if(exist.indexOf(Json[j].job_name )== -1){
-		index.push(Json[j].job_name);//小改改;
-		exist.push(Json[j].job_name);
-	}
+    if(exist.indexOf(Json[j].job_name )== -1){
+        index.push(Json[j].job_name);//小改改;
+        exist.push(Json[j].job_name);
+    }
 }
 // }
 
 var data = new Array()
 for(let a in index){
-	let object = new Object()
-	object.index = index[a]
-	data.push(object)
+    let object = new Object()
+    object.index = index[a]
+    data.push(object)
 }
 var nodes0 = JSON.stringify(data)
-var nodes = JSON.parse(nodes0)
+var dnodes = JSON.parse(nodes0)
 
-return nodes;
-
+return dnodes;
 }
 
 var linksProcess = function(Json){
 
-    let data1 = new Array();
-    for(let i in Json){
-        let job = Json[i].job_name;
-        let task = Json[i].task_name;
-        let a = new Object();
-        a.source = job;
-        a.target = task;
-        data1.push(a);
-    }
+let exist = new Array();
 
-    let data2 = new Array();
-    for(let i in Json){
-        let task = Json[i].task_name;
-        let instance = Json[i].inst_name;
-        let a = new Object();
-        a.source = task;
-        a.target = instance;
-        data2.push(a);
-    }
-    var data = data1.concat(data2)
-    var links0 = JSON.stringify(data);
-    var links = JSON.parse(links0)
+//添加origin节点的link
+let data0 = new Array();
+var obj0  = new Object();
+obj0.source = 0;
+obj0.target = 'origin';
 
-    return links;
+data0.push(obj0);
+// for(let i in Json){
+//     if(exist.indexOf(Json[i].job_name) == -1){
+//         exist.push(Json[i].job_name)
+//         let a = new Object();
+//         a.source = 'origin';
+//         a.target = Json[i].job_name;
+
+//         data0.push(a)
+
+//     }
+// }
+
+
+
+// let data1 = new Array();
+
+// for(let i in Json){
+//     let job = Json[i].job_name;
+//     let task = Json[i].task_name;
+//     let a = new Object();
+//     a.source = job;
+//     a.target = task;
+
+//     data1.push(a);
+
+
+// }
+
+//     var data2 = data0.concat(data1)
+
+// let data3 = new Array();
+// for(let i in Json){
+//     let task = Json[i].task_name;
+//     let instance = Json[i].inst_name;
+//     let a = new Object();
+//     a.source = task;
+//     a.target = instance;
+
+//     data3.push(a);
+// }
+// var data = data2.concat(data3)
+
+
+
+var links0 = JSON.stringify(data0);
+var links = JSON.parse(links0);
+
+//对links去重，赋值给dlinks
+var source = new Array();	
+var target = new Array();
+
+var dlinks = new Array();
+
+for(let k = 0;k<links.length;k++){
+
+if((source.indexOf(links[k].source) > -1)&(target.indexOf(links[k].target) > -1)){
+
+}else{
+    source.push(links[k].source);
+    target.push(links[k].target);
+    dlinks.push(links[k])
+
+
+}
+}
+return dlinks;
 
 }
 
@@ -88,167 +144,81 @@ var linksProcess = function(Json){
 var nodes = nodesProcess(Json)
 var links = linksProcess(Json)
 
+// console.log(nodes);
+console.log(links);
 
-// var nodes = d3.range(1000).map(function(i) {
-//   return {
-//     index: i
-//   };
-// });
 
-// var links = d3.range(nodes.length - 1).map(function(i) {
-//   return {
-//     source: Math.floor(Math.sqrt(i)),
-//     target: i + 1
-//   };
-// });
+// var simulation = d3.forceSimulation(nodes)
+//     .force("charge", d3.forceManyBody())
+//     .force("link", d3.forceLink(links).distance(20).strength(1))
+//     .force("x", d3.forceX())
+//     .force("y", d3.forceY())
+//     .on("tick", ticked);
 
-var simulation = d3.forceSimulation(nodes)
-    .force("charge", d3.forceManyBody())
-    .force("link", d3.forceLink(links).distance(20).strength(1))
-    .force("x", d3.forceX())
-    .force("y", d3.forceY())
-    .on("tick", ticked);
+// var canvas = document.querySelector("canvas"),
+//     context = canvas.getContext("2d"),
+//     width = canvas.width,
+//     height = canvas.height;
 
-var canvas = document.querySelector("canvas"),
-    context = canvas.getContext("2d"),
-    width = canvas.width,
-    height = canvas.height;
+// d3.select(canvas)
+//     .call(d3.drag()
+//         .container(canvas)
+//         .subject(dragsubject)
+//         .on("start", dragstarted)
+//         .on("drag", dragged)
+//         .on("end", dragended));
 
-d3.select(canvas)
-    .call(d3.drag()
-        .container(canvas)
-        .subject(dragsubject)
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended));
+// function ticked() {
+//   context.clearRect(0, 0, width, height);
+//   context.save();
+//   context.translate(width / 2, height / 2);
 
-function ticked() {
-  context.clearRect(0, 0, width, height);
-  context.save();
-  context.translate(width / 2, height / 2);
+//   context.beginPath();
+//   links.forEach(drawLink);
+//   context.strokeStyle = "#aaa";
+//   context.stroke();
 
-  context.beginPath();
-  links.forEach(drawLink);
-  context.strokeStyle = "#aaa";
-  context.stroke();
+//   context.beginPath();
+//   nodes.forEach(drawNode);
+//   context.fill();
+//   context.strokeStyle = "#fff";
+//   context.stroke();
 
-  context.beginPath();
-  nodes.forEach(drawNode);
-  context.fill();
-  context.strokeStyle = "#fff";
-  context.stroke();
+//   context.restore();
+// }
 
-  context.restore();
-}
+// function dragsubject() {
+//   return simulation.find(d3.event.x - width / 2, d3.event.y - height / 2);
+// }
 
-function dragsubject() {
-  return simulation.find(d3.event.x - width / 2, d3.event.y - height / 2);
-}
+// function dragstarted() {
+//   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+//   d3.event.subject.fx = d3.event.subject.x;
+//   d3.event.subject.fy = d3.event.subject.y;
+// }
 
-function dragstarted() {
-  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-  d3.event.subject.fx = d3.event.subject.x;
-  d3.event.subject.fy = d3.event.subject.y;
-}
+// function dragged() {
+//   d3.event.subject.fx = d3.event.x;
+//   d3.event.subject.fy = d3.event.y;
+// }
 
-function dragged() {
-  d3.event.subject.fx = d3.event.x;
-  d3.event.subject.fy = d3.event.y;
-}
+// function dragended() {
+//   if (!d3.event.active) simulation.alphaTarget(0);
+//   d3.event.subject.fx = null;
+//   d3.event.subject.fy = null;
+// }
 
-function dragended() {
-  if (!d3.event.active) simulation.alphaTarget(0);
-  d3.event.subject.fx = null;
-  d3.event.subject.fy = null;
-}
+// function drawLink(d) {
+//   context.moveTo(d.source.x, d.source.y);
+//   context.lineTo(d.target.x, d.target.y);
+// }
 
-function drawLink(d) {
-  context.moveTo(d.source.x, d.source.y);
-  context.lineTo(d.target.x, d.target.y);
-}
-
-function drawNode(d) {
-  context.moveTo(d.x + 3, d.y);
-  context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
-}
+// function drawNode(d) {
+//   context.moveTo(d.x + 3, d.y);
+//   context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+// }
 
 </script>
-<!-- //构造job->task的
-// let data1 = new Array();
-// for(let i in Json){
-// 	let job = Json[i].job_name;
-// 	let task = Json[i].task_name;
-// 	let a = new Object();
-// 	a.source = job;
-// 	a.target = task;
-// 	data1.push(a);
-// }
-
-// let data2 = new Array();
-// for(let i in Json){
-// 	let task = Json[i].task_name;
-// 	let instance = Json[i].inst_name;
-// 	let a = new Object();
-// 	a.source = task;
-// 	a.target = instance;
-// 	data2.push(a);
-// }
-// var data = data1.concat(data2)
-// var links = JSON.stringify(data);
-
-
-
-
-
-
-// 	for(let j in Json){
-// 				Json2 = JSON.stringify(Json[j])
-// console.log(typeof Json2)
-// 	}
-
-
-// var exist = new Array();
-// var index = new Array()
-
-// // for(let i in list){
-// 	// let field = 'inst_name';
-// for(let j in Json){
-// 	if(exist.indexOf(Json[j].inst_name )== -1){
-// 		index.push(Json[j].inst_name);//小改改;
-// 		exist.push(Json[j].inst_name);
-// 	}
-// }
-// // }
-
-// // for(let i in list){
-// 	// let field = 'inst_name';
-// for(let j in Json){
-// 	if(exist.indexOf(Json[j].task_name )== -1){
-// 		index.push(Json[j].task_name);//小改改;
-// 		exist.push(Json[j].task_name);
-// 	}
-// }
-// // }
-
-
-// // for(let i in list){
-// 	// let field = 'inst_name';
-// for(let j in Json){
-// 	if(exist.indexOf(Json[j].job_name )== -1){
-// 		index.push(Json[j].job_name);//小改改;
-// 		exist.push(Json[j].job_name);
-// 	}
-// }
-// // }
-
-// var data = new Array()
-// for(let a in index){
-// 	let object = new Object()
-// 	object.index = index[a]
-// 	data.push(object)
-// }
-// data = JSON.stringify(data)
-// console.log(data) -->
 
 
 
