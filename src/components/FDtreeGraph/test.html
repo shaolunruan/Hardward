@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<canvas width="960" height="960"></canvas>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+var Json = [{"_id":"5caf26ba8fd84281dc529de9","inst_name":"ins_1046024645","task_name":"task_ODg3NTU4NTE3NDcxODA4NjA5Ng==","job_name":"j_858070","task_type":"3","status":"Terminated","start_time":162242,"end_time":166288,"machine_id":"m_4029","seq_no":1,"total_seq_no":1,"cpu_avg":0,"cpu_max":17,"mem_avg":0.02,"mem_max":0.02},{"_id":"5caf26ba8fd84281dc529dea","inst_name":"ins_1046024721","task_name":"task_ODg3NTU4NTE3NDcxODA4NjA5Ng==","job_name":"j_858070","task_type":"3","status":"Terminated","start_time":162244,"end_time":166288,"machine_id":"m_320","seq_no":1,"total_seq_no":1,"cpu_avg":1879,"cpu_max":4678,"mem_avg":0.02,"mem_max":0.02},{"_id":"5caf26cb8fd84281dc60f986","inst_name":"ins_456505426","task_name":"J2_1_3","job_name":"j_3834827","task_type":"1","status":"Terminated","start_time":165845,"end_time":165967,"machine_id":"m_3040","seq_no":1,"total_seq_no":1,"cpu_avg":2,"cpu_max":57,"mem_avg":0.42,"mem_max":0.42},{"_id":"5caf26cb8fd84281dc60f987","inst_name":"ins_308715900","task_name":"J4_2_3","job_name":"j_3834827","task_type":"1","status":"Terminated","start_time":165845,"end_time":165967,"machine_id":"m_3625","seq_no":1,"total_seq_no":1,"cpu_avg":2,"cpu_max":76,"mem_avg":0.02,"mem_max":0.02},{"_id":"5caf26cb8fd84281dc60f988","inst_name":"ins_308715715","task_name":"J4_2_3","job_name":"j_3834827","task_type":"1","status":"Terminated","start_time":165845,"end_time":165967,"machine_id":"m_2129","seq_no":1,"total_seq_no":1,"cpu_avg":2,"cpu_max":72,"mem_avg":0.02,"mem_max":0.02},{"_id":"5caf26cb8fd84281dc60f989","inst_name":"ins_648533336","task_name":"R6_5","job_name":"j_3834827","task_type":"1","status":"Terminated","start_time":165845,"end_time":165967,"machine_id":"m_1755","seq_no":1,"total_seq_no":1,"cpu_avg":1,"cpu_max":88,"mem_avg":0.04,"mem_max":0.04},{"_id":"5caf26cb8fd84281dc60f98a","inst_name":"ins_308715807","task_name":"J4_2_3","job_name":"j_3834827","task_type":"1","status":"Terminated","start_time":165845,"end_time":165967,"machine_id":"m_2339","seq_no":1,"total_seq_no":1,"cpu_avg":6,"cpu_max":44,"mem_avg":0.03,"mem_max":0.03},{"_id":"5caf26cb8fd84281dc60f98b","inst_name":"ins_456505240","task_name":"J2_1_3","job_name":"j_3834827","task_type":"1","status":"Terminated","start_time":165845,"end_time":165967,"machine_id":"m_963","seq_no":1,"total_seq_no":1,"cpu_avg":2,"cpu_max":84,"mem_avg":0.41,"mem_max":0.42},{"_id":"5caf26cb8fd84281dc60f98c","inst_name":"ins_456505514","task_name":"J2_1_3","job_name":"j_3834827","task_type":"1","status":"Terminated","start_time":165845,"end_time":165967,"machine_id":"m_3942","seq_no":1,"total_seq_no":1,"cpu_avg":2,"cpu_max":80,"mem_avg":0.41,"mem_max":0.42},{"_id":"5caf26cb8fd84281dc60f98d","inst_name":"ins_308715996","task_name":"J4_2_3","job_name":"j_3834827","task_type":"1","status":"Terminated","start_time":165845,"end_time":165967,"machine_id":"m_1955","seq_no":1,"total_seq_no":1,"cpu_avg":1,"cpu_max":100,"mem_avg":0.02,"mem_max":0.02},{"_id":"5caf26cb8fd84281dc60f98f","inst_name":"ins_774120321","task_name":"M1","job_name":"j_3834827","task_type":"1","status":"Terminated","start_time":165845,"end_time":165967,"machine_id":"m_2016","seq_no":1,"total_seq_no":1,"cpu_avg":101,"cpu_max":147,"mem_avg":0.02,"mem_max":0.02},{"_id":"5caf26cb8fd84281dc60f990","inst_name":"ins_308715612","task_name":"J4_2_3","job_name":"j_3834827","task_type":"1","status":"Terminated","start_time":165845,"end_time":165967,"machine_id":"m_283","seq_no":1,"total_seq_no":1,"cpu_avg":9,"cpu_max":100,"mem_avg":0.04,"mem_max":0.04},{"_id":"5caf26cb8fd84281dc60f991","inst_name":"ins_498892046","task_name":"R5_4","job_name":"j_3834827","task_type":"1","status":"Terminated","start_time":165845,"end_time":165967,"machine_id":"m_2550","seq_no":1,"total_seq_no":1,"cpu_avg":7,"cpu_max":54,"mem_avg":0.08,"mem_max":0.08},{"_id":"5caf26d28fd84281dc6767db","inst_name":"ins_998126355","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165927,"machine_id":"m_1006","seq_no":1,"total_seq_no":1,"cpu_avg":70,"cpu_max":88,"mem_avg":0.32,"mem_max":0.51},{"_id":"5caf26d28fd84281dc6767e7","inst_name":"ins_953949696","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165922,"machine_id":"m_102","seq_no":1,"total_seq_no":1,"cpu_avg":73,"cpu_max":88,"mem_avg":0.32,"mem_max":0.51},{"_id":"5caf26d28fd84281dc67681d","inst_name":"ins_401258723","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165914,"machine_id":"m_3050","seq_no":1,"total_seq_no":1,"cpu_avg":77,"cpu_max":109,"mem_avg":0.31,"mem_max":0.51},{"_id":"5caf26d28fd84281dc67682d","inst_name":"ins_255138744","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165936,"machine_id":"m_2908","seq_no":1,"total_seq_no":1,"cpu_avg":66,"cpu_max":89,"mem_avg":0.31,"mem_max":0.5},{"_id":"5caf26d28fd84281dc6768a2","inst_name":"ins_10871196","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165913,"machine_id":"m_1011","seq_no":1,"total_seq_no":1,"cpu_avg":77,"cpu_max":96,"mem_avg":0.32,"mem_max":0.51},{"_id":"5caf26d28fd84281dc6768c8","inst_name":"ins_37297855","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165921,"machine_id":"m_3093","seq_no":1,"total_seq_no":1,"cpu_avg":72,"cpu_max":91,"mem_avg":0.31,"mem_max":0.51},{"_id":"5caf26d28fd84281dc67691b","inst_name":"ins_362708155","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165803,"end_time":165915,"machine_id":"m_1547","seq_no":1,"total_seq_no":1,"cpu_avg":77,"cpu_max":93,"mem_avg":0.31,"mem_max":0.51},{"_id":"5caf26d28fd84281dc67694e","inst_name":"ins_524695824","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165919,"machine_id":"m_2201","seq_no":1,"total_seq_no":1,"cpu_avg":74,"cpu_max":96,"mem_avg":0.31,"mem_max":0.51},{"_id":"5caf26d28fd84281dc676958","inst_name":"ins_92210201","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165911,"machine_id":"m_603","seq_no":1,"total_seq_no":1,"cpu_avg":77,"cpu_max":95,"mem_avg":0.32,"mem_max":0.51},{"_id":"5caf26d28fd84281dc6769d5","inst_name":"ins_580491262","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165911,"machine_id":"m_1870","seq_no":1,"total_seq_no":1,"cpu_avg":77,"cpu_max":94,"mem_avg":0.32,"mem_max":0.51},{"_id":"5caf26d28fd84281dc6769fd","inst_name":"ins_184930571","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165803,"end_time":165911,"machine_id":"m_426","seq_no":1,"total_seq_no":1,"cpu_avg":77,"cpu_max":88,"mem_avg":0.31,"mem_max":0.5},{"_id":"5caf26d28fd84281dc676a28","inst_name":"ins_417833998","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165914,"machine_id":"m_2578","seq_no":1,"total_seq_no":1,"cpu_avg":76,"cpu_max":92,"mem_avg":0.32,"mem_max":0.51},{"_id":"5caf26d28fd84281dc676a3b","inst_name":"ins_1160853596","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165921,"machine_id":"m_3706","seq_no":1,"total_seq_no":1,"cpu_avg":74,"cpu_max":98,"mem_avg":0.32,"mem_max":0.51},{"_id":"5caf26d28fd84281dc676a5b","inst_name":"ins_362708551","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165916,"machine_id":"m_173","seq_no":1,"total_seq_no":1,"cpu_avg":77,"cpu_max":100,"mem_avg":0.32,"mem_max":0.51},{"_id":"5caf26d28fd84281dc676ab2","inst_name":"ins_444062321","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165922,"machine_id":"m_208","seq_no":1,"total_seq_no":1,"cpu_avg":74,"cpu_max":101,"mem_avg":0.31,"mem_max":0.51},{"_id":"5caf26d28fd84281dc676ad6","inst_name":"ins_275470193","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165911,"machine_id":"m_345","seq_no":1,"total_seq_no":1,"cpu_avg":80,"cpu_max":95,"mem_avg":0.32,"mem_max":0.5},{"_id":"5caf26d28fd84281dc676b15","inst_name":"ins_1138292839","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165913,"machine_id":"m_706","seq_no":1,"total_seq_no":1,"cpu_avg":76,"cpu_max":97,"mem_avg":0.32,"mem_max":0.51},{"_id":"5caf26d28fd84281dc676b16","inst_name":"ins_578092431","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165924,"machine_id":"m_1515","seq_no":1,"total_seq_no":1,"cpu_avg":71,"cpu_max":92,"mem_avg":0.32,"mem_max":0.51},{"_id":"5caf26d28fd84281dc676b27","inst_name":"ins_401255139","task_name":"M14","job_name":"j_1764770","task_type":"1","status":"Terminated","start_time":165802,"end_time":165913,"machine_id":"m_3143","seq_no":1,"total_seq_no":1,"cpu_avg":78,"cpu_max":98,"mem_avg":0.31,"mem_max":0.51}]
+
+var nodesProcess = function(Json){
+
+var exist = new Array();
+
+var index = new Array()
+
+// for(let i in list){
+	// let field = 'inst_name';
+for(let j in Json){
+	if(exist.indexOf(Json[j].inst_name )== -1){
+		index.push(Json[j].inst_name);//小改改;
+		exist.push(Json[j].inst_name);
+	}
+}
+// }
+
+// for(let i in list){
+	// let field = 'inst_name';
+for(let j in Json){
+	if(exist.indexOf(Json[j].task_name )== -1){
+		index.push(Json[j].task_name);//小改改;
+		exist.push(Json[j].task_name);
+	}
+}
+// }
+
+
+// for(let i in list){
+	// let field = 'inst_name';
+for(let j in Json){
+	if(exist.indexOf(Json[j].job_name )== -1){
+		index.push(Json[j].job_name);//小改改;
+		exist.push(Json[j].job_name);
+	}
+}
+// }
+
+var data = new Array()
+for(let a in index){
+	let object = new Object()
+	object.index = index[a]
+	data.push(object)
+}
+var nodes0 = JSON.stringify(data)
+var nodes = JSON.parse(nodes0)
+
+return nodes;
+
+}
+
+var linksProcess = function(Json){
+
+    let data1 = new Array();
+    for(let i in Json){
+        let job = Json[i].job_name;
+        let task = Json[i].task_name;
+        let a = new Object();
+        a.source = job;
+        a.target = task;
+        data1.push(a);
+    }
+
+    let data2 = new Array();
+    for(let i in Json){
+        let task = Json[i].task_name;
+        let instance = Json[i].inst_name;
+        let a = new Object();
+        a.source = task;
+        a.target = instance;
+        data2.push(a);
+    }
+    var data = data1.concat(data2)
+    var links0 = JSON.stringify(data);
+    var links = JSON.parse(links0)
+
+    return links;
+
+}
+
+
+var nodes = nodesProcess(Json)
+var links = linksProcess(Json)
+
+
+// var nodes = d3.range(1000).map(function(i) {
+//   return {
+//     index: i
+//   };
+// });
+
+// var links = d3.range(nodes.length - 1).map(function(i) {
+//   return {
+//     source: Math.floor(Math.sqrt(i)),
+//     target: i + 1
+//   };
+// });
+
+var simulation = d3.forceSimulation(nodes)
+    .force("charge", d3.forceManyBody())
+    .force("link", d3.forceLink(links).distance(20).strength(1))
+    .force("x", d3.forceX())
+    .force("y", d3.forceY())
+    .on("tick", ticked);
+
+var canvas = document.querySelector("canvas"),
+    context = canvas.getContext("2d"),
+    width = canvas.width,
+    height = canvas.height;
+
+d3.select(canvas)
+    .call(d3.drag()
+        .container(canvas)
+        .subject(dragsubject)
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended));
+
+function ticked() {
+  context.clearRect(0, 0, width, height);
+  context.save();
+  context.translate(width / 2, height / 2);
+
+  context.beginPath();
+  links.forEach(drawLink);
+  context.strokeStyle = "#aaa";
+  context.stroke();
+
+  context.beginPath();
+  nodes.forEach(drawNode);
+  context.fill();
+  context.strokeStyle = "#fff";
+  context.stroke();
+
+  context.restore();
+}
+
+function dragsubject() {
+  return simulation.find(d3.event.x - width / 2, d3.event.y - height / 2);
+}
+
+function dragstarted() {
+  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+  d3.event.subject.fx = d3.event.subject.x;
+  d3.event.subject.fy = d3.event.subject.y;
+}
+
+function dragged() {
+  d3.event.subject.fx = d3.event.x;
+  d3.event.subject.fy = d3.event.y;
+}
+
+function dragended() {
+  if (!d3.event.active) simulation.alphaTarget(0);
+  d3.event.subject.fx = null;
+  d3.event.subject.fy = null;
+}
+
+function drawLink(d) {
+  context.moveTo(d.source.x, d.source.y);
+  context.lineTo(d.target.x, d.target.y);
+}
+
+function drawNode(d) {
+  context.moveTo(d.x + 3, d.y);
+  context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+}
+
+</script>
+<!-- //构造job->task的
+// let data1 = new Array();
+// for(let i in Json){
+// 	let job = Json[i].job_name;
+// 	let task = Json[i].task_name;
+// 	let a = new Object();
+// 	a.source = job;
+// 	a.target = task;
+// 	data1.push(a);
+// }
+
+// let data2 = new Array();
+// for(let i in Json){
+// 	let task = Json[i].task_name;
+// 	let instance = Json[i].inst_name;
+// 	let a = new Object();
+// 	a.source = task;
+// 	a.target = instance;
+// 	data2.push(a);
+// }
+// var data = data1.concat(data2)
+// var links = JSON.stringify(data);
+
+
+
+
+
+
+// 	for(let j in Json){
+// 				Json2 = JSON.stringify(Json[j])
+// console.log(typeof Json2)
+// 	}
+
+
+// var exist = new Array();
+// var index = new Array()
+
+// // for(let i in list){
+// 	// let field = 'inst_name';
+// for(let j in Json){
+// 	if(exist.indexOf(Json[j].inst_name )== -1){
+// 		index.push(Json[j].inst_name);//小改改;
+// 		exist.push(Json[j].inst_name);
+// 	}
+// }
+// // }
+
+// // for(let i in list){
+// 	// let field = 'inst_name';
+// for(let j in Json){
+// 	if(exist.indexOf(Json[j].task_name )== -1){
+// 		index.push(Json[j].task_name);//小改改;
+// 		exist.push(Json[j].task_name);
+// 	}
+// }
+// // }
+
+
+// // for(let i in list){
+// 	// let field = 'inst_name';
+// for(let j in Json){
+// 	if(exist.indexOf(Json[j].job_name )== -1){
+// 		index.push(Json[j].job_name);//小改改;
+// 		exist.push(Json[j].job_name);
+// 	}
+// }
+// // }
+
+// var data = new Array()
+// for(let a in index){
+// 	let object = new Object()
+// 	object.index = index[a]
+// 	data.push(object)
+// }
+// data = JSON.stringify(data)
+// console.log(data) -->
+
+
+
+
+

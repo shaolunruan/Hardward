@@ -4,13 +4,12 @@ var usageModel = require('../db/model/usage')
 
 module.exports = function(req,res,next){
 
-    var reqId = 'm_1933';
-    var reqTime = 160000;
+    var req_id = 'm_1933';
+    var req_time = 160000;
 
-    // (usageModel.find({'time_stamp':520})).find({'machine_id':'m_1933'})
     usageModel
     //这种查询方式过慢，后期可以优化
-    .where('machine_id').equals(reqId)
+    .where('machine_id').equals(req_id)
     .where('time_stamp').lte(140000)
     .select(['machine_id','time_stamp','cpu_util_percent','mem_util_percent','disk_io_percent'])
     .sort({'time_stamp' : -1})

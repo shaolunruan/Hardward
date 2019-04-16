@@ -5,187 +5,104 @@
 </template>
 
 <script>
-
 import * as d3 from 'd3';
 
-var nodes = d3.range(1000).map(function(i) {
-  return {
-    index: i
-  };
-});
+import nodesProcess from './nodes.js'
+import linksProcess from './links.js'
+// var nodes = d3.range(1000).map(function(i) {
+//     return {
+//         index: i
+//     };
+// });
 
-var links = d3.range(nodes.length - 1).map(function(i) {
-  return {
-    source: Math.floor(Math.sqrt(i)),
-    target: i + 1
-  };
-});
-
-
+// var links = d3.range(nodes.length - 1).map(function(i) {
+//     return {
+//         source: Math.floor(Math.sqrt(i)),
+//         target: i + 1
+//     };
+// });
 
 
 export default {
 
-mounted(){
-    var canvas = document.querySelector("canvas"),
-    context = canvas.getContext("2d"),
-    width = canvas.width,
-    height = canvas.height;
+    mounted() {
 
-    d3.select(canvas)
-      .call(d3.drag()
-        .container(canvas)
-        .subject(dragsubject)
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended));
+        this.$axios.get('/result').then((response)=>{
+        var nodes = nodesProcess(response.data)
+        var links = linksProcess(response.data);
+
+        var simulation = d3.forceSimulation(nodes)
+            .force("charge", d3.forceManyBody())
+            .force("link", d3.forceLink(links).distance(20).strength(1))
+            .force("x", d3.forceX())
+            .force("y", d3.forceY())
+            .on("tick", ticked);
+        var canvas = document.querySelector("canvas"),
+            context = canvas.getContext("2d"),
+            width = canvas.width,
+            height = canvas.height;
+
+        d3.select(canvas)
+            .call(d3.drag()
+                .container(canvas)
+                .subject(dragsubject)
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended));
 
         function ticked() {
-  context.clearRect(0, 0, width, height);
-  context.save();
-  context.translate(width / 2, height / 2);
+            context.clearRect(0, 0, width, height);
+            context.save();
+            context.translate(width / 2, height / 2);
 
-  context.beginPath();
-  links.forEach(drawLink);
-  context.strokeStyle = "#aaa";
-  context.stroke();
+            context.beginPath();
+            links.forEach(drawLink);
+            context.strokeStyle = "#aaa";
+            context.stroke();
 
-  context.beginPath();
-  nodes.forEach(drawNode);
-  context.fill();
-  context.strokeStyle = "#fff";
-  context.stroke();
+            context.beginPath();
+            nodes.forEach(drawNode);
+            context.fill();
+            context.strokeStyle = "#fff";
+            context.stroke();
 
-  context.restore();
-}
+            context.restore();
+        }
 
-function dragsubject() {
-  return simulation.find(d3.event.x - width / 2, d3.event.y - height / 2);
-}
+        function dragsubject() {
+            return simulation.find(d3.event.x - width / 2, d3.event.y - height / 2);
+        }
 
-function dragstarted() {
-  if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-  d3.event.subject.fx = d3.event.subject.x;
-  d3.event.subject.fy = d3.event.subject.y;
-}
+        function dragstarted() {
+            if(!d3.event.active) simulation.alphaTarget(0.3).restart();
+            d3.event.subject.fx = d3.event.subject.x;
+            d3.event.subject.fy = d3.event.subject.y;
+        }
 
-function dragged() {
-  d3.event.subject.fx = d3.event.x;
-  d3.event.subject.fy = d3.event.y;
-}
+        function dragged() {
+            d3.event.subject.fx = d3.event.x;
+            d3.event.subject.fy = d3.event.y;
+        }
 
-function dragended() {
-  if (!d3.event.active) simulation.alphaTarget(0);
-  d3.event.subject.fx = null;
-  d3.event.subject.fy = null;
-}
+        function dragended() {
+            if(!d3.event.active) simulation.alphaTarget(0);
+            d3.event.subject.fx = null;
+            d3.event.subject.fy = null;
+        }
 
-function drawLink(d) {
-  context.moveTo(d.source.x, d.source.y);
-  context.lineTo(d.target.x, d.target.y);
-}
+        function drawLink(d) {
+            context.moveTo(d.source.x, d.source.y);
+            context.lineTo(d.target.x, d.target.y);
+        }
 
-function drawNode(d){
-  context.moveTo(d.x + 3, d.y);
-  context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
-}
-
-var simulation = d3.forceSimulation(nodes)
-    .force("charge", d3.forceManyBody())
-    .force("link", d3.forceLink(links).distance(20).strength(1))
-    .force("x", d3.forceX())
-    .force("y", d3.forceY())
-    .on("tick", ticked);
-},
+        function drawNode(d) {
+            context.moveTo(d.x + 3, d.y);
+            context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+        }
+        })
 
 
-//     data(){
-//         return{
 
-//         }   
-//     },
-
-//     created(){
-       
-//     },
-
-//     mounted(){
-
-        
-// var simulation = d3.forceSimulation(this.nodes)
-//     .force("charge", d3.forceManyBody())
-//     .force("link", d3.forceLink(this.links).distance(20).strength(1))
-//     .force("x", d3.forceX())
-//     .force("y", d3.forceY())
-//     .on("tick", this.ticked);
-
-// var canvas = document.querySelector("canvas"),
-//     context = canvas.getContext("2d"),
-//     width = canvas.width,
-//     height = canvas.height;
-
-// d3.select(canvas)
-//     .call(
-//         d3.drag()
-//         .container(canvas)
-//         .subject(this.dragsubject)
-//         .on("start", this.dragstarted)
-//         .on("drag", this.dragged)
-//         .on("end", this.dragended));
-// },
-
-//     methods:{
-// ticked() {
-//   context.clearRect(0, 0, width, height);
-//   context.save();
-//   context.translate(width / 2, height / 2);
-
-//   context.beginPath();
-//   links.forEach(this.drawLink);
-//   context.strokeStyle = "#aaa";
-//   context.stroke();
-
-//   context.beginPath();
-//   nodes.forEach(this.drawNode);
-//   context.fill();
-//   context.strokeStyle = "#fff";
-//   context.stroke();
-
-//   context.restore();
-// },
-
-// dragsubject() {
-//   return simulation.find(d3.event.x - width / 2, d3.event.y - height / 2);
-// },
-
-// dragstarted() {
-//   if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-//   d3.event.subject.fx = d3.event.subject.x;
-//   d3.event.subject.fy = d3.event.subject.y;
-// },
-
-// dragged() {
-//   d3.event.subject.fx = d3.event.x;
-//   d3.event.subject.fy = d3.event.y;
-// },
-
-// dragended() {
-//   if (!d3.event.active) simulation.alphaTarget(0);
-//   d3.event.subject.fx = null;
-//   d3.event.subject.fy = null;
-// },
-
-// drawNode(d) {
-//     context.moveTo(d.x + 3, d.y);
-//   context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
-// },
-
-// drawLink(d) {
-//    context.moveTo(d.source.x, d.source.y);
-//   context.lineTo(d.target.x, d.target.y);}
-
-
-        
-//     }
+    }
 }
 </script>
