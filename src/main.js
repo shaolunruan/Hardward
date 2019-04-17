@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueResource from 'vue-resource'
 import Echarts from "echarts"
+import * as d3 from 'd3';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <canvas width="960" height="960"></canvas>
+        <canvas width="1960" height="1080"></canvas>
     </div>
 </template>
 
@@ -9,18 +9,6 @@ import * as d3 from 'd3';
 
 import nodesProcess from './nodes.js'
 import linksProcess from './links.js'
-// var nodes = d3.range(1000).map(function(i) {
-//     return {
-//         index: i
-//     };
-// });
-
-// var links = d3.range(nodes.length - 1).map(function(i) {
-//     return {
-//         source: Math.floor(Math.sqrt(i)),
-//         target: i + 1
-//     };
-// });
 
 
 export default {
