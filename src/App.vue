@@ -1,8 +1,8 @@
 <template>
     <div>
         <!-- <property></property> --><!-- <list></list> --><!-- <timestamp></timestamp> --><!-- <liquidfill></liquidfill> -->
-        <!-- <calendarGraph></calendarGraph> -->
-<treetest></treetest>
+        <calendarGraph></calendarGraph>
+<!-- <treetest></treetest> -->
     </div>
 </template>
 

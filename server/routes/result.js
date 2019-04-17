@@ -15,7 +15,7 @@ module.exports = function(req,res,next){
 // 9	j_2653732	1
 // 10	j_770612	1
 
-req_time= 165910;
+req_time= 161790;
 
 //应该使用管道聚合aggregate，把出现次数少的值给删去
 

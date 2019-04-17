@@ -11,17 +11,6 @@ module.exports = function(app){
         res.send('Hello,here is /')
     });
 
-    //获取meta数据
-    // app.get('/api',function(req,res){
-    //     metaModel.find({}).exec((err,metaList)=>{
-    //         if(err){
-    //             console.log(err);
-    //         }else{
-    //             res.json(metaList);
-    //         }
-    //     })
-    // });
-
 
     app.get('/meta',function(req,res){
         metaModel.find({}).exec((err,metaList)=>{

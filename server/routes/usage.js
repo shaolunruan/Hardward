@@ -4,7 +4,7 @@ var usageModel = require('../db/model/usage')
 
 module.exports = function(req,res,next){
 
-    var req_id = 'm_1933';
+    var req_id = 'm_1934';
     var req_time = 160000;
 
     usageModel

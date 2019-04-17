@@ -12,11 +12,11 @@ module.exports = function(Json){
         var date = new Date(temp[0], temp[1], temp[2]);
         return date;
     }
-    
+     
     function getDiffDate (start, end) {
         var startTime = getDate(start);
         var endTime = getDate(end);
-        dateArr = [];
+        
         var counter = 0;
         while ((endTime.getTime() - startTime.getTime()) > 0) {
             var year = startTime.getFullYear();
@@ -27,10 +27,10 @@ module.exports = function(Json){
             counter= counter+1;
         }
         // console.log(counter);
-        return(dateArr)
+        return dateArr
         
     }
-    //s最后一天不输出，闰年366天
+    //最后一天不输出，闰年366天
     getDiffDate('2016-1-1','2017-1-1')
 
     //删去010月的改为10

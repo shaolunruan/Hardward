@@ -30,27 +30,69 @@
                     title: {
                         top: 5,
                         left: 'left', //'center',
-                        text: '2014-2016年微博发布情况'
+                        text: '服务器过去每10秒的状态记录',
+                        show:true,
+                        textAlign:'auto',
+                        // backgroundColor:'#ccc'
 
                     },
                     tooltip: {
-                        position: 'top'
+                        position: 'top',
+                        left:100
                     },
                     visualMap: {
-                        min: 0,
-                        max: 20,
+                        min: 45,
+                        max: 85,
                         calculable: true,
                         orient: 'horizontal',
                         left: 'center',
-                        top: 'top'
+                        top: 'top',
+                                inRange: {
+            color: ['#006edd', '#fff','#bf0000'],
+            opacity: 0.9,
+            // colorSaturation:0.5//饱和度
+        },
                     },
 
                     calendar: [{
                         top: 100,
-                        range: '2016',
+                        range: ['2016-01-03','2016-10-29'],
                         cellSize: ['auto', 15],
                         left: 70,
                         right: 30,
+                        cellSize:['auto',15],
+                        splitLine:{
+                            show:false,
+
+                        },
+//                         itemStyle:{
+// color: {
+//     type: 'radial',
+//     x: 0.5,
+//     y: 0.5,
+//     r: 0.5,
+//     colorStops: [{
+//         offset: 0, color: 'red' // 0% 处的颜色
+//     }, {
+//         offset: 1, color: 'red' // 100% 处的颜色
+//     }],
+//     global: false // 缺省为 false
+// }
+//                         },
+                                dayLabel: {
+                                    nameMap:  []
+                                },
+                                monthLabel:{
+                                    nameMap: [
+                                        '300', '600', '900',
+                                        '1.2k', '1.5k', '1.8k',
+                                        '2.1k', '2.4k', '2.7k',
+                                        '3K', '', ''
+                                    ],
+                                },
+                                yearLabel:{
+                                    show:false
+                                }
                     }],
 
                     series: [{
