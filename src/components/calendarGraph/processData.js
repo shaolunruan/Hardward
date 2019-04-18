@@ -12,7 +12,7 @@ module.exports = function(Json){
         var date = new Date(temp[0], temp[1], temp[2]);
         return date;
     }
-     
+    var dateArr = [];
     function getDiffDate (start, end) {
         var startTime = getDate(start);
         var endTime = getDate(end);

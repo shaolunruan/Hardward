@@ -1,21 +1,17 @@
 <template>
     <div>
         <!-- <property></property> --><!-- <list></list> --><!-- <timestamp></timestamp> --><!-- <liquidfill></liquidfill> -->
-        <calendarGraph></calendarGraph>
+        <!-- <calendarGraph></calendarGraph> -->
 <!-- <treetest></treetest> -->
+<fdtest></fdtest>
     </div>
 </template>
 
 <script>
 
-// import property from './components/property.vue'
-// import list from './components/list.vue'
-// import timestamp from './components/timestamp.vue'
-// import liquidfill from './components/liquidfill.vue'
-
 import calendarGraph from './components/calendarGraph/calendarGraph.vue'
 import treetest from './components/FDtreeGraph/FDtreeGraph.vue'
-
+import fdtest from './components/fdGraph/fd.vue'
 
 
 
@@ -26,7 +22,8 @@ export default {
     components:{
         // property,list,timestamp,liquidfill
         calendarGraph,
-        treetest
+        treetest,
+        fdtest
     }
 }
 </script>

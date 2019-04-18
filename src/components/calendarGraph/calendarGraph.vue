@@ -48,7 +48,7 @@
                         left: 'center',
                         top: 'top',
                                 inRange: {
-            color: ['#006edd', '#fff','#bf0000'],
+            color: ['#80bfff', '#fff','#bf0000'],
             opacity: 0.9,
             // colorSaturation:0.5//饱和度
         },
@@ -84,10 +84,10 @@
                                 },
                                 monthLabel:{
                                     nameMap: [
-                                        '300', '600', '900',
-                                        '1.2k', '1.5k', '1.8k',
-                                        '2.1k', '2.4k', '2.7k',
-                                        '3K', '', ''
+                                        '5min', '10min', '15min',
+                                        '20min', '25min', '30min',
+                                        '35min', '40min', '45min',
+                                        '50min', '', ''
                                     ],
                                 },
                                 yearLabel:{
