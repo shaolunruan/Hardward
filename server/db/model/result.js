@@ -14,7 +14,10 @@ var resultSchema = mongoose.Schema({
     cpu_avgc:Number,
     cpu_avg:Number,
     mem_avg:Number,
-    mem_max:Number
+    mem_max:Number,
+    util_cpu:Number,
+    util_mem:Number,
+    util_disk:Number
 
 })
 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <svg width="1500" height="1000"></svg>
+        <svg width="1920" height="1080"></svg>
     </div>
 </template>
 
@@ -35,8 +35,10 @@ mounted() {
     var simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(function(d) {
             return d.id;
-        }))
-        .force("charge", d3.forceManyBody().strength(-30))
+        }).distance((d)=>{
+            return d.value == 0.25 ? 70:10;}
+        ))
+        .force("charge", d3.forceManyBody().strength(-15))
                 .force("x", d3.forceX())
             .force("y", d3.forceY())
         .force("center", d3.forceCenter(width / 2, height / 2));
@@ -53,13 +55,37 @@ mounted() {
                 return Math.sqrt(d.value);
             });
 
+        //不应用函数也可以实现，先暂时放在这
+        var jobLength = function(d){
+            let counter = []
+            if(d.value = 25){
+                counter++;
+                if(counter == 1)return 1;
+                else return 30;
+            }
+        }
+
         var node = svg.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
             .data(nodes)
             .enter()
             .append("circle")
-            .attr("r", 5)
+            .attr("r", (d)=>{
+                switch(d.group){
+                    case 3:
+                        return 8
+                        break;
+                    case 2:
+                        return 5
+                        break;
+                    case 1:
+                        return 3
+                        break;
+                    default:
+                        return 3;
+                }
+            })
             .attr("fill", function(d) {
                 return color(d.group);
             })
@@ -144,6 +170,6 @@ mounted() {
 
     .nodes circle {
         stroke: #fff;
-        stroke-width: 1.5px;
+        stroke-width: 0.5px;
     }
 </style>
