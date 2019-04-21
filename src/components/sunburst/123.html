@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script>
+  d3.csv("data.csv",function(error,csvdata){
+      if(error)  throw error;
+      var tree = d3.tree()
+               .size([300, 300]);
+      var str=d3.csvFormat(csvdata);//str是string类型
+      console.log(str);
+      var table=d3.csvParse(str);//table是对象类型
+      var root=tree(d3.stratify()
+                .id(function(d) { return d.name; })
+                .parentId(function(d) { return d.parent; })
+                (table)); 
+      console.log(root);
+   //  //nodes
+   //  simulation.nodes(root.descendants())
+   //            .on("tick",ticked)
+   // //links
+ 
+   //  simulation.force("link")
+   //           .links(root.links());
+           })
+</script>

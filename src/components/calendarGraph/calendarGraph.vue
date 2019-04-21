@@ -25,7 +25,7 @@
 
             paintCalendar() {
                 var chart = this.$echarts.init(document.getElementById('calendar'));
-                console.log('paint', this.data)
+                // console.log('paint', this.data)
                 var option = {
                     title: {
                         top: 5,
