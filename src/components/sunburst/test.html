@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-
+<div>
+    <div>
+        <div id="sunburst" style="width:1000px;height:1000px"></div>
+        {{data}}
+    </div>
+</div>
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
-
-
 
 linksProcess = function(Json){
 
@@ -124,8 +127,8 @@ for(let i = 0;i<d.length;i++){
   data.push(job)
 }
 
-console.log(data);
 
+console.log(data);
 
 
   // d3.csv("data.csv",function(error,csvdata){
