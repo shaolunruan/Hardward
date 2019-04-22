@@ -13,13 +13,17 @@ module.exports = function(Json){
       if(existJob.indexOf(Json[i].job_name) == -1){
         existJob.push(Json[i].job_name);
         let a = new Object();
-        a.source = '';
+        a.source = 'origin';
         a.target = Json[i].job_name;
     
         data0.push(a);
       }
     }
     
+    data0.unshift({
+      source:'',
+      target:'origin'
+    })
     
     
     let data1 = new Array();
@@ -79,3 +83,4 @@ module.exports = function(Json){
     return dlinks;
     
     }
+    
