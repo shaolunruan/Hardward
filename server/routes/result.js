@@ -4,7 +4,7 @@ var usageModel = require('../db/model/usage')
 //用来画主View视图的数据
 module.exports = function(req,res,next){
 
-req_time= 168580;
+req_time= 168500;
 
 //应该使用管道聚合aggregate，把出现次数少的值给删去
 

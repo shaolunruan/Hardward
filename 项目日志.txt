@@ -223,11 +223,13 @@ Vue.prototype.axios = axios
 ************
 4.22任务
 设置一个vue的html自动补全，以便以后数据输出在html中方便//
-把vue中跑通代码
+把vue中跑通代码//
+调试旭日图//调试了一半，最后接着调
 看官老师的论文
 画总览图
 ************
 4.22
 我设计的旭日图的算法，数据结构是基于d3的d3.csvParse,d3.csvFormat和d3.stratify结构生成的，
 然而stratify这种层次结构只能有一个父节点，所以有了sunburst/structure.js的转换功能，使之成为
-可以供xuritu使用的多节点数组
+可以供旭日图使用的多节点数组
+

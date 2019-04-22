@@ -4,7 +4,8 @@
         <!-- <calendarGraph></calendarGraph> -->
 <!-- <treetest></treetest> -->
 <!-- <fdtest></fdtest> -->
-<sbtest></sbtest>
+<!-- <sunburst></sunburst> -->
+
     </div>
 </template>
 
@@ -13,7 +14,8 @@
 import calendarGraph from './components/calendarGraph/calendarGraph.vue'
 // import treetest from './components/FDtreeGraph/FDtreeGraph.vue'
 import fdtest from './components/fdGraph/fd.vue'
-import sbtest from './components/sunburst/test.vue'
+import sunburst from './components/sunburst/test.vue'
+
 
 
 
@@ -27,7 +29,7 @@ export default {
         calendarGraph,
         // treetest,
         fdtest,
-        sbtest
+        sunburst
     }
 }
 </script>
