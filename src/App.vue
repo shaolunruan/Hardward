@@ -4,7 +4,7 @@
         <!-- <calendarGraph></calendarGraph> -->
 <!-- <treetest></treetest> -->
 <!-- <fdtest></fdtest> -->
-<!-- <sunburst></sunburst> -->
+<sunburst></sunburst>
 
     </div>
 </template>

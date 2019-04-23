@@ -16,6 +16,5 @@ module.exports = function(req,res,next){
     .limit(366)
     .then(result=>{
         res.json(result)
-        // console.log(result[0]);
     })
 };

@@ -22,6 +22,9 @@ module.exports = function(app){
         })
     });
 
+    //获取lineView的数据
+
+    app.get('/view',require('./lineView'));
 
     //获取usage数据
     app.get('/usage',require('./usage'))

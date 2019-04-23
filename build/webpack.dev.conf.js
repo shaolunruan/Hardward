@@ -45,12 +45,11 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     proxy:{
       '/meta':{target:'http://localhost:3000',changeOrigin:true},
       '/usage':{target:'http://localhost:3000',changeOrigin:true},
-      '/result':{target:'http://localhost:3000',changeOrigin:true}
+      '/result':{target:'http://localhost:3000',changeOrigin:true},
+      '/view':{target:'http://localhost:3000',changeOrigin:true}
 
 
     },
-    //   '/result':{target:'http://localhost:3000'},
-    //   changeOrigin:true},
 
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
