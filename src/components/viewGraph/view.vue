@@ -19,22 +19,32 @@ import processData from './structure.js'
             var chart = this.$echarts.init(document.getElementById('line'))
 
             
-              var  option = {
+    var  option = {
         title: {
-            text: 'Beijing AQI'
+            text: 'Anomaly Counter'
         },
-        tooltip: {
-            trigger: 'axis'
+        tooltip: {//跟随鼠标的刻度线
+            trigger: 'axis',
         },
         xAxis: {
             data: this.data.map(function (item) {
                 return item[0];
-            })
+            }),
+            name:"Time",
+            nameTextStyle:{
+                fontSize:20
+            }
         },
         yAxis: {
             splitLine: {
                 show: false
-            }
+            },
+            name:"Anomaly Number",
+            nameLocation:'center',
+            nameTextStyle:{
+                fontSize:20
+            },
+            nameGap:20
         },
         toolbox: {
             left: 'center',
@@ -46,8 +56,10 @@ import processData from './structure.js'
                 saveAsImage: {}
             }
         },
-        dataZoom: [{
-            startValue: '2014-06-01'
+        dataZoom: [
+            {
+            startValue: '116250',
+            endValue:'120150'
         }, {
             type: 'inside'
         }],
@@ -56,26 +68,26 @@ import processData from './structure.js'
             right: 10,
             pieces: [{
                 gt: 0,
-                lte: 50,
+                lte: 1750,
                 color: '#096'
             }, {
-                gt: 50,
-                lte: 100,
+                gt: 1750,
+                lte: 2500,
                 color: '#ffde33'
             }, {
-                gt: 100,
-                lte: 150,
+                gt: 2500,
+                lte: 3000,
                 color: '#ff9933'
             }, {
-                gt: 150,
-                lte: 200,
+                gt: 3000,
+                lte: 3250,
                 color: '#cc0033'
             }, {
-                gt: 200,
-                lte: 300,
+                gt: 3250,
+                lte: 3500,
                 color: '#660099'
             }, {
-                gt: 300,
+                gt: 3500,
                 color: '#7e0023'
             }],
             outOfRange: {
@@ -91,15 +103,15 @@ import processData from './structure.js'
             markLine: {
                 silent: true,
                 data: [{
-                    yAxis: 50
+                    yAxis: 1750
                 }, {
-                    yAxis: 100
+                    yAxis: 2500
                 }, {
-                    yAxis: 150
+                    yAxis: 3000
                 }, {
-                    yAxis: 200
+                    yAxis: 3250
                 }, {
-                    yAxis: 300
+                    yAxis: 3500
                 }]
             }
         }
