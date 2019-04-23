@@ -59,6 +59,7 @@ var usageSchema = mongoose.Schema({
         default: 0
 
     },
+    warning:Number
 
 },{versionKey:false})
 
