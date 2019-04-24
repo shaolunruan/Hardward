@@ -1,11 +1,13 @@
 <template>
-    <div>
+<div>
+    <!-- <fdtest></fdtest> -->
         <!-- <property></property> --><!-- <list></list> --><!-- <timestamp></timestamp> --><!-- <liquidfill></liquidfill> -->
+        <linec></linec>
         <!-- <calendarGraph></calendarGraph> -->
-<!-- <treetest></treetest> -->
-<!-- <fdtest></fdtest> -->
-<!-- <sunburst></sunburst> -->
-<linec></linec>
+        <!-- <sunburst></sunburst> -->
+
+        <test></test>
+
 
     </div>
 </template>
@@ -14,9 +16,10 @@
 
 import linec from './components/viewGraph/view.vue'
 import calendarGraph from './components/calendarGraph/calendarGraph.vue'
-// import treetest from './components/FDtreeGraph/FDtreeGraph.vue'
 import fdtest from './components/fdGraph/fd.vue'
 import sunburst from './components/sunburst/test.vue'
+
+import test from './components/others/test.vue'
 
 
 
@@ -29,9 +32,9 @@ export default {
         // property,list,timestamp,liquidfill
         linec,
         calendarGraph,
-        // treetest,
         fdtest,
-        sunburst
+        sunburst,
+        test
     }
 }
 </script>

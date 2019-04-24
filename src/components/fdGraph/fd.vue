@@ -39,7 +39,7 @@ mounted() {
             return d.value == 0.25 ? 70:10;}
         ))
         .force("charge", d3.forceManyBody().strength(-15))
-                .force("x", d3.forceX())
+            .force("x", d3.forceX())
             .force("y", d3.forceY())
         .force("center", d3.forceCenter(width / 2, height / 2));
 

@@ -95,7 +95,7 @@ import processData from './structure.js'
             }
         },
         series: {
-            name: 'Beijing AQI',
+            name: 'Anomaly Counter',
             type: 'line',
             data: this.data.map(function (item) {
                 return item[1];
