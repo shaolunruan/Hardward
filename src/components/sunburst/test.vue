@@ -23,15 +23,15 @@ methods:{
             paintSunburst(){
                 
             var chart = this.$echarts.init(document.getElementById('sunburst'));
-var item1 = {
-    color: '#F54F4A'
-};
-var item2 = {
-    color: '#FF8C75'
-};
-var item3 = {
-    color: '#FFB499'
-};
+                var item1 = {
+                    color: '#45B4FF'
+                };
+                var item2 = {
+                    color: '#FE8152'
+                };
+                var item3 = {
+                    color: '#52FF6E'
+                };
 
           var option = {
                     series: {
@@ -42,6 +42,9 @@ var item3 = {
                         label: {
                             rotate: 'radial'
                         },
+                        // itemStyle:{
+                        //     color:['#45B4FF','#FE8152','#52FF6E','#52FF6E','#52FF6E']
+                        // },
                         levels:[
                             {},
                             {},
