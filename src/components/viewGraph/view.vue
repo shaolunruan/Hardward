@@ -7,7 +7,9 @@
 <script>
 import processData from './structure.js'
 
+
   export default {
+      
     data () {
       return {
           data:[]
@@ -15,10 +17,18 @@ import processData from './structure.js'
     },
 
     methods:{
+       click(param){
+            this.$store.dispatch('getData',param.name);
+
+            console.log(this.$store.state.time_stamp);
+            // console.log(this.$store.state.counter);
+        },
+
         paintChart(){
             var chart = this.$echarts.init(document.getElementById('line'))
 
-            
+
+
     var  option = {
         title: {
             text: 'Anomaly Counter'
@@ -118,16 +128,21 @@ import processData from './structure.js'
     }
 
             chart.setOption(option);
+                        //尝试添加鼠标事件
+            chart.on('click','series.line',this.click)
         }
-
     },
 
     mounted(){
+
+
         this.$axios.get('/view')
             .then(response=>{
                 this.data = processData(response.data);
                 this.paintChart();
+                 console.log(this.$store.state.time_stamp);
             })
+
     }
   }
 </script>

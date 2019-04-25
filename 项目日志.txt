@@ -247,3 +247,7 @@ Vue.prototype.axios = axios
 （初步想法 发送异步请求到vuex 把数据取回之后都暂存vux中）
 
 明天可以做一个色卡，供所有组件使用
+***********
+4.25
+处理鼠标事件时，调用函数传入一个参数param，param有很多的属性，name value seriesName等等
+methods里面的方法互相调用也要用this。XXX
