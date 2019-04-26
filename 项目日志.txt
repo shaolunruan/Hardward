@@ -2,6 +2,7 @@
 //正则表达式
 //Object.keys(obj).forEach(x => st.has(obj[x]) ? delete obj[x] : st.add(obj[x]))
     这种玩意儿
+//es6
 
 3.20
     要确定怎么编写组件，现在是直接在html里生成，下一步要知道怎么以导入组件的方式去执行
@@ -251,3 +252,18 @@ Vue.prototype.axios = axios
 4.25
 处理鼠标事件时，调用函数传入一个参数param，param有很多的属性，name value seriesName等等
 methods里面的方法互相调用也要用this。XXX
+**********
+4.26
+get和post请求都没有搞懂。。。基础还是太差了
+像这种赶项目进度是最后一次，以后要干什么，先系统的学习一遍，比如看视频或者整个学习一遍api
+
+get请求可以单独出现，像之前在后台
+post请求应该是可以成对出现
+
+在本项目中应该用get请求数据，因为要返回数据
+
+//记录一些参数
+req.query,param.name&value,res.body&data
+//
+get请求到的参数，调试查看的时候是这样访问
+http://localhost:8079/result?name=119650

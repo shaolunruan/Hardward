@@ -64,7 +64,7 @@ module.exports = function(Json){
     }
     
 
-    console.log(dlinks);
+
     
     return dlinks;
     

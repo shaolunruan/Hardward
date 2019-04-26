@@ -4,6 +4,8 @@ import Echarts from "echarts"
 import * as d3 from 'd3';
 // import Vuex from 'vuex'//因为下面直接引入文件，所以不用引入vuex
 import axios from 'axios'
+//设置post传参的配置
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 import VueAxios from 'vue-axios'
 
 import App from "./App.vue"

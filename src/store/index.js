@@ -5,16 +5,12 @@ Vue.use(Vuex);
 
 //将所有组件都要调用的state放在这里，存数据
 var state = {
-    counter : 0,
-    time_stamp:0,//之后可以设置时间戳的默认值
-    data:[]
+    time_stamp:'',//之后可以设置时间戳的默认值
+    data:[],
+    counter:0
 };
 
 var getters = {
-    counter:(state)=>{
-        return state.counter
-    },
-
     data:(state)=>{
         return state.data
     }
@@ -22,9 +18,6 @@ var getters = {
 };
 
 var mutations = {
-    increment(state){
-        return state.counter = state.counter+1;
-    },
 
     submitTime(state,name){
         state.time_stamp = name
@@ -32,17 +25,21 @@ var mutations = {
 
     getdata(state,d){
         state.data = d;
+    },
+
+    increment(state){
+        state.counter = state.counter + 1
     }
 };
 
 var actions = {
     getData(context,d){
-        Vue.http.post(('/result'),d)
-        .then(res=>{
-            console.log(d);
-            context.commit('getdata',res.data)
-
-        })
+        context.commit('submitTime',d);
+        Vue.http.get(`/result?name=${d}`)
+                .then(res=>{
+                    // console.log(res.data);//证明可以取到res
+                    context.commit('getdata',res.data)
+                });
     }
 };
 

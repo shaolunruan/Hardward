@@ -1,12 +1,12 @@
 <template>
 <div>
-    <!-- <fdtest></fdtest> -->
+        <fdtest></fdtest>
         <!-- <property></property> --><!-- <list></list> --><!-- <timestamp></timestamp> --><!-- <liquidfill></liquidfill> -->
-        <!-- <linec></linec> -->
+        <linec></linec>
         <!-- <calendarGraph></calendarGraph> -->
         <!-- <sunburst></sunburst> -->
 
-        <test></test>
+        <!-- <test></test> -->
 
 
     </div>

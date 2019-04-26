@@ -65,7 +65,7 @@ module.exports = function(Json){
     var nodes0 = JSON.stringify(data)
     var dnodes = JSON.parse(nodes0)
     
-    console.log(dnodes);
+
     return dnodes;
     }
     

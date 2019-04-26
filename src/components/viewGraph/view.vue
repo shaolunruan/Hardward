@@ -18,10 +18,9 @@ import processData from './structure.js'
 
     methods:{
        click(param){
+           
             this.$store.dispatch('getData',param.name);
-
-            console.log(this.$store.state.time_stamp);
-            // console.log(this.$store.state.counter);
+    // console.log(this.$store.state.data);
         },
 
         paintChart(){

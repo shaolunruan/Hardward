@@ -20,6 +20,9 @@ module.exports = function(app){
                 res.json(metaList);
             }
         })
+        // console.log(req.query);
+
+ 
     });
 
     //获取lineView的数据
