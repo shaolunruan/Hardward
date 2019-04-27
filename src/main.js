@@ -22,6 +22,7 @@ Vue.use(VueResource)
 // Vue.use(VueAxios,axios)
 Vue.prototype.$axios = axios
 // axios.defaults.baseURL = '/api'
+Vue.prototype.$echarts = Echarts
 
 
 

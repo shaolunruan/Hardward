@@ -3,6 +3,8 @@
 //Object.keys(obj).forEach(x => st.has(obj[x]) ? delete obj[x] : st.add(obj[x]))
     这种玩意儿
 //es6
+//this在vue项目的指向 和箭头函数对它的影响
+//watch的使用 比如handler和deep这两个参数
 
 3.20
     要确定怎么编写组件，现在是直接在html里生成，下一步要知道怎么以导入组件的方式去执行
@@ -267,3 +269,8 @@ req.query,param.name&value,res.body&data
 //
 get请求到的参数，调试查看的时候是这样访问
 http://localhost:8079/result?name=119650
+******************
+4.27
+实现了d3和echarts的动态刷新
+d3中注意的是 清理画布元素 重新画
+echarts注意的是 不要乱用箭头函数 会改变this的指向

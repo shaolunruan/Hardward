@@ -1,6 +1,6 @@
 <template>
 <div>
-        <fdtest></fdtest>
+        <!-- <fdtest></fdtest> -->
         <!-- <property></property> --><!-- <list></list> --><!-- <timestamp></timestamp> --><!-- <liquidfill></liquidfill> -->
         <linec></linec>
         <!-- <calendarGraph></calendarGraph> -->
@@ -20,9 +20,6 @@ import fdtest from './components/fdGraph/fd.vue'
 import sunburst from './components/sunburst/test.vue'
 
 import test from './components/others/test.vue'
-
-
-
 
 import './assets/css/bootstrap.min.css'
 
