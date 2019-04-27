@@ -9,13 +9,13 @@
 import * as d3 from 'd3'
 import { link } from 'fs';
 
-var nodes = d3.range(1000).map(function(i) {
+let nodes = d3.range(1000).map(function(i) {
     return {
         index: i
     };
 });
 
-var links = d3.range(nodes.length - 1).map(function(i) {
+let links = d3.range(nodes.length - 1).map(function(i) {
     return {
         source: Math.floor(Math.sqrt(i)),
         target: i + 1

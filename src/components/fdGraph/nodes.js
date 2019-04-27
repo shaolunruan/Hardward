@@ -4,15 +4,15 @@ import * as d3 from 'd3';
 
 module.exports = function(Json){
 
-    var exist = new Array();
+    let exist = new Array();
     
-    var index = new Array();
-    var group = new Array();
+    let index = new Array();
+    let group = new Array();
     
     // for(let i in list){
         // let field = 'inst_name';
     //在开头插入一个源节点origin
-    // var origin = 'origin'
+    // let origin = 'origin'
     // index.unshift('origin')
     // index.unshift(0)
     
@@ -55,15 +55,15 @@ module.exports = function(Json){
     //     }
     // })
     
-    var data = new Array()
+    let data = new Array()
     for(let a in index){
         let object = new Object()
         object.id = index[a];
         object.group = group[a];
         data.push(object)
     }
-    var nodes0 = JSON.stringify(data)
-    var dnodes = JSON.parse(nodes0)
+    let nodes0 = JSON.stringify(data)
+    let dnodes = JSON.parse(nodes0)
     
 
     return dnodes;

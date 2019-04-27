@@ -24,11 +24,11 @@ import processData from './structure.js'
         },
 
         paintChart(){
-            var chart = this.$echarts.init(document.getElementById('line'))
+            let chart = this.$echarts.init(document.getElementById('line'))
 
 
 
-    var  option = {
+    let  option = {
         title: {
             text: 'Anomaly Counter'
         },

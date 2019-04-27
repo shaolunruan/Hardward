@@ -4,27 +4,27 @@
 <script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 
-var nodes = d3.range(1000).map(function(i) {
+let nodes = d3.range(1000).map(function(i) {
   return {
     index: i
   };
 });
 
-var links = d3.range(nodes.length - 1).map(function(i) {
+let links = d3.range(nodes.length - 1).map(function(i) {
   return {
     source: Math.floor(Math.sqrt(i)),
     target: i + 1
   };
 });
 
-var simulation = d3.forceSimulation(nodes)
+let simulation = d3.forceSimulation(nodes)
     .force("charge", d3.forceManyBody())
     .force("link", d3.forceLink(links).distance(20).strength(1))
     .force("x", d3.forceX())
     .force("y", d3.forceY())
     .on("tick", ticked);
 
-var canvas = document.querySelector("canvas"),
+let canvas = document.querySelector("canvas"),
     context = canvas.getContext("2d"),
     width = canvas.width,
     height = canvas.height;

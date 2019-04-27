@@ -1,6 +1,6 @@
-var mongoose = require('../db')
+const mongoose = require('../db')
 
-var resultSchema = mongoose.Schema({
+let resultSchema = mongoose.Schema({
     inst_name:String,
     task_name:String,
     job_name:String,

@@ -1,6 +1,6 @@
 <template>
 <div>
-        <!-- <fdtest></fdtest> -->
+        <fdtest></fdtest>
         <!-- <property></property> --><!-- <list></list> --><!-- <timestamp></timestamp> --><!-- <liquidfill></liquidfill> -->
         <linec></linec>
         <!-- <calendarGraph></calendarGraph> -->

@@ -23,7 +23,7 @@
       //     id:12345
       //   }
       // })
-      // var a = '123';
+      // let a = '123';
       // console.log(`hhhh ${a}`);
       // this.$axios.get('/meta?id=123')
       //   .then(res=>{

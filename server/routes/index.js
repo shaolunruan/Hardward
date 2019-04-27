@@ -1,8 +1,8 @@
-var metaModel = require('../db/model/meta');
-var usageModel = require('../db/model/usage');
-var resultModel = require('../db/model/result');
+const metaModel = require('../db/model/meta');
+const usageModel = require('../db/model/usage');
+const resultModel = require('../db/model/result');
 
-var result = require('../db/model/result')
+const result = require('../db/model/result')
 
 
 module.exports = function(app){     

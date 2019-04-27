@@ -1,15 +1,15 @@
-var express = require('express');
+const express = require('express');
 // var proxy = require('http-proxy-middleware')
 
-var routers = require('./routes/index.js');
-var metaModel = require('./db/model/meta');
-var usageModel = require('./db/model/usage');
-var resultModel = require('./db/model/result')
+const routers = require('./routes/index.js');
+const metaModel = require('./db/model/meta');
+const usageModel = require('./db/model/usage');
+const resultModel = require('./db/model/result')
 
 
 require('./db/db');
 
-var app = new express();
+const app = new express();
 
 routers(app);
 

@@ -1,4 +1,4 @@
-var resultModel = require('../db/model/result');
+const resultModel = require('../db/model/result');
 
 //用来画主View视图的数据
 module.exports = function(req,res,next){

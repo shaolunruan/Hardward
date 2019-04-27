@@ -5,12 +5,12 @@
 <script>
   d3.csv("data.csv",function(error,csvdata){
       if(error)  throw error;
-      var tree = d3.tree()
+      let tree = d3.tree()
                .size([300, 300]);
-      var str=d3.csvFormat(csvdata);//str是string类型
+      let str=d3.csvFormat(csvdata);//str是string类型
       console.log(str);
-      var table=d3.csvParse(str);//table是对象类型
-      var root=tree(d3.stratify()
+      let table=d3.csvParse(str);//table是对象类型
+      let root=tree(d3.stratify()
                 .id(function(d) { return d.name; })
                 .parentId(function(d) { return d.parent; })
                 (table)); 

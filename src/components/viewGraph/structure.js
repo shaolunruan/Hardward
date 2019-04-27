@@ -3,7 +3,7 @@
 
 module.exports = function(d){
 
-    var data = new Array();
+    let data = new Array();
     for(let i in d){
         // console.log(data.length)
         let a = new Array();

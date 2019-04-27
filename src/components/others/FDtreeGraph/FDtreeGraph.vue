@@ -16,16 +16,16 @@ export default {
     mounted() {
 
         this.$axios.get('/result').then((response)=>{
-        var nodes = nodesProcess(response.data)
-        var links = linksProcess(response.data);
+        let nodes = nodesProcess(response.data)
+        let links = linksProcess(response.data);
 
-        var simulation = d3.forceSimulation(nodes)
+        let simulation = d3.forceSimulation(nodes)
             .force("charge", d3.forceManyBody())
             .force("link", d3.forceLink(links).distance(20).strength(1))
             .force("x", d3.forceX())
             .force("y", d3.forceY())
             .on("tick", ticked);
-        var canvas = document.querySelector("canvas"),
+        let canvas = document.querySelector("canvas"),
             context = canvas.getContext("2d"),
             width = canvas.width,
             height = canvas.height;

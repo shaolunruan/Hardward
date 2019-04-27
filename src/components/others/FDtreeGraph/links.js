@@ -7,7 +7,7 @@ module.exports = function(Json){
     
     //添加origin节点的link
     let data0 = new Array();
-    // var obj0  = new Object();
+    // let obj0  = new Object();
     // obj0.source = 0;
     // obj0.target = 'origin';
     
@@ -40,7 +40,7 @@ module.exports = function(Json){
     
     }
     
-        var data2 = data0.concat(data1)
+        let data2 = data0.concat(data1)
     
     let data3 = new Array();
     for(let i in Json){
@@ -52,18 +52,18 @@ module.exports = function(Json){
     
         data3.push(a);
     }
-    var data = data2.concat(data3)
+    let data = data2.concat(data3)
     
     
     
-    var links0 = JSON.stringify(data);
-    var links = JSON.parse(links0);
+    let links0 = JSON.stringify(data);
+    let links = JSON.parse(links0);
     
     //对links去重，赋值给dlinks
-    var source = new Array();	
-    var target = new Array();
+    let source = new Array();	
+    let target = new Array();
     
-    var dlinks = new Array();
+    let dlinks = new Array();
     
     for(let k = 0;k<links.length;k++){
     
@@ -78,14 +78,14 @@ module.exports = function(Json){
     }
     
     //以下把links根据映射表来映射
-    var exist = new Array();
+    let exist = new Array();
     
-    var index = new Array()
+    let index = new Array()
     
     // for(let i in list){
         // let field = 'inst_name';
     //在开头插入一个源节点origin
-    // var origin = 'origin'
+    // let origin = 'origin'
     // index.unshift('origin')
     // index.unshift(0)
     
@@ -118,7 +118,7 @@ module.exports = function(Json){
     //以下根据index数组构造映射表
     // import * as d3 from 'd3';
 
-        var map = d3.range(index.length).map(function(i){
+        let map = d3.range(index.length).map(function(i){
         return{
             tom :i,
             jerry:index[i]

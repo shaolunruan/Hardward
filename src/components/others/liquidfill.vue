@@ -49,9 +49,9 @@
         methods: {
 
             liquidFill01() {
-                var chart = this.$echarts.init(document.getElementById('liquidfill-chart-1'));
+                let chart = this.$echarts.init(document.getElementById('liquidfill-chart-1'));
 
-                var option = {
+                let option = {
                     series: [{
                         type: 'liquidFill',
                         data: [this.selected.capacity_CPU, 0.3, 0.4]
@@ -62,9 +62,9 @@
                 chart.setOption(option);
             },
             liquidFill02() {
-                var chart = this.$echarts.init(document.getElementById('liquidfill-chart-2'));
+                let chart = this.$echarts.init(document.getElementById('liquidfill-chart-2'));
 
-                var option = {
+                let option = {
                     series: [{
                         type: 'liquidFill',
                         data: [this.selected.capacity_memory, 0.3, 0.4]
@@ -75,9 +75,9 @@
                 chart.setOption(option);
             },
             liquidFill03() {
-                var chart = this.$echarts.init(document.getElementById('liquidfill-chart-3'));
+                let chart = this.$echarts.init(document.getElementById('liquidfill-chart-3'));
 
-                var option = {
+                let option = {
                     series: [{
                         type: 'liquidFill',
                         data: [this.selected.capacity_disk, 0.3, 0.4]
@@ -124,9 +124,9 @@
             selected: function(val) {
 
                 // 这是刷新第一幅水球图
-                var chart01 = this.$echarts.init(document.getElementById('liquidfill-chart-1'));
+                let chart01 = this.$echarts.init(document.getElementById('liquidfill-chart-1'));
 
-                var valoption01 = {
+                let valoption01 = {
                     series: [{
                         type: 'liquidFill',
                         // data: [val.capacity_CPU|numFilter, (val.capacity_CPU|numFilter) - 0.2, (val.capacity_CPU|numFilter) - 0.3],
@@ -159,9 +159,9 @@
 
                 // 这是第二幅水球图
 
-                var chart02 = this.$echarts.init(document.getElementById('liquidfill-chart-2'));
+                let chart02 = this.$echarts.init(document.getElementById('liquidfill-chart-2'));
 
-                var valoption02 = {
+                let valoption02 = {
                     series: [{
                         type: 'liquidFill',
                         data: [{
@@ -195,9 +195,9 @@
 
                 // 这是第三幅水球图
 
-                var chart03 = this.$echarts.init(document.getElementById('liquidfill-chart-3'));
+                let chart03 = this.$echarts.init(document.getElementById('liquidfill-chart-3'));
 
-                var valoption03 = {
+                let valoption03 = {
                     series: [{
                         type: 'liquidFill',
                         data: [val.capacity_disk, val.capacity_disk - 0.2, val.capacity_disk - 0.3],

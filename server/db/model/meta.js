@@ -1,9 +1,9 @@
-var mongoose = require('../db.js')
+const mongoose = require('../db.js')
 
 
 // 定义集合的映射
 
-var metaSchema = mongoose.Schema({
+let metaSchema = mongoose.Schema({
 
     machine_id: {
 

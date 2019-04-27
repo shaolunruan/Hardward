@@ -22,13 +22,13 @@ data() {
 
 methods: {
     d3(){
-         var svg = d3.select("svg"),
+         let svg = d3.select("svg"),
         width = +svg.attr("width"),
         height = +svg.attr("height");
 
-    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    let color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    var simulation = d3.forceSimulation()
+    let simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(function(d) {
             return d.id;
         }).distance((d)=>{
@@ -41,7 +41,7 @@ methods: {
 
 
 
-        var link = svg.append("g")
+        let link = svg.append("g")
             .attr("class", "links")
             .selectAll("line")
             .data(links)
@@ -52,7 +52,7 @@ methods: {
             });
 
         //不应用函数也可以实现，先暂时放在这
-        var jobLength = function(d){
+        let jobLength = function(d){
             let counter = []
             if(d.value = 25){
                 counter++;
@@ -61,7 +61,7 @@ methods: {
             }
         }
 
-        var node = svg.append("g")
+        let node = svg.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
             .data(nodes)
@@ -155,8 +155,8 @@ methods: {
 mounted() {
 
 
-        // var nodes = nodesProcess(response.data)
-        // var links = linksProcess(response.data);
+        // let nodes = nodesProcess(response.data)
+        // let links = linksProcess(response.data);
         
    this.d3()
 
@@ -170,8 +170,8 @@ mounted() {
 
     watch: {
         showData:(a,b)=>{
-            var nodes = nodesProcess(a)
-            var links = linksProcess(a);
+            let nodes = nodesProcess(a)
+            let links = linksProcess(a);
 
             console.log(nodes);
             console.log(links);
@@ -181,13 +181,13 @@ mounted() {
             .selectAll('*')
             .remove();
 
-        var svg = d3.select("svg")  ,
+        let svg = d3.select("svg")  ,
         width = +svg.attr("width"),
         height = +svg.attr("height");
 
-    var color = d3.scaleOrdinal(d3.schemeCategory10);
+    let color = d3.scaleOrdinal(d3.schemeCategory10);
 
-    var simulation = d3.forceSimulation()
+    let simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(function(d) {
             return d.id;
         }).distance((d)=>{
@@ -200,7 +200,7 @@ mounted() {
 
 
 
-        var link = svg.append("g")
+        let link = svg.append("g")
             .attr("class", "links")
             .selectAll("line")
             .exit().remove()
@@ -212,7 +212,7 @@ mounted() {
             });
 
         //不应用函数也可以实现，先暂时放在这
-        var jobLength = function(d){
+        let jobLength = function(d){
             let counter = []
             if(d.value = 25){
                 counter++;
@@ -221,7 +221,7 @@ mounted() {
             }
         }
 
-        var node = svg.append("g")
+        let node = svg.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
             .exit().remove()

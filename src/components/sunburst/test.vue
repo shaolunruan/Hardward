@@ -25,9 +25,9 @@ export default {
 methods:{
             paintSunburst(){
                 
-            var chart = this.$echarts.init(document.getElementById('sunburst'));
+            let chart = this.$echarts.init(document.getElementById('sunburst'));
 
-          var option = {
+          let option = {
 
             visualMap:{
                 type: 'continuous',
@@ -73,21 +73,21 @@ methods:{
 
     watch:{
         showData:(a,b)=>{
-            var links = linksProcess(a);
+            let links = linksProcess(a);
 
             console.log(links);
-            var root = d3.stratify()
+            let root = d3.stratify()
                 .id(d=>{return d.target})
                 .parentId(d=>{return d.source})
                 (links)
 
-            var d = root.ancestors()[0].children;;
+            let d = root.ancestors()[0].children;;
 
-        var data = structure(d);
+        let data = structure(d);
       
-                    var chart = this.$echarts.init(document.getElementById('sunburst'));
+                    let chart = this.$echarts.init(document.getElementById('sunburst'));
 
-          var option = {
+          let option = {
 
             visualMap:{
                 type: 'continuous',

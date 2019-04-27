@@ -4,20 +4,20 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 //将所有组件都要调用的state放在这里，存数据
-var state = {
+let state = {
     time_stamp:'',//之后可以设置时间戳的默认值
     data:[],
     counter:0
 };
 
-var getters = {
+let getters = {
     data:(state)=>{
         return state.data
     }
 
 };
 
-var mutations = {
+let mutations = {
 
     submitTime(state,name){
         state.time_stamp = name
@@ -32,7 +32,7 @@ var mutations = {
     }
 };
 
-var actions = {
+let actions = {
     getData(context,d){
         context.commit('submitTime',d);
         Vue.http.get(`/result?name=${d}`)

@@ -4,14 +4,14 @@ import * as d3 from 'd3';
 
 module.exports = function(Json){
 
-    var exist = new Array();
+    let exist = new Array();
     
-    var index = new Array()
+    let index = new Array()
     
     // for(let i in list){
         // let field = 'inst_name';
     //在开头插入一个源节点origin
-    // var origin = 'origin'
+    // let origin = 'origin'
     // index.unshift('origin')
     // index.unshift(0)
     
@@ -51,14 +51,14 @@ module.exports = function(Json){
     //     }
     // })
     
-    var data = new Array()
+    let data = new Array()
     for(let a in index){
         let object = new Object()
         object.index = a;//要点：不用映射，直接写进去（因为之前也是按顺序的）
         data.push(object)
     }
-    var nodes0 = JSON.stringify(data)
-    var dnodes = JSON.parse(nodes0)
+    let nodes0 = JSON.stringify(data)
+    let dnodes = JSON.parse(nodes0)
     
     console.log(index);
     return dnodes;

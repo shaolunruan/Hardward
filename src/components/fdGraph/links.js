@@ -25,7 +25,7 @@ module.exports = function(Json){
     
     }
     
-        var data2 = data0.concat(data1)
+        let data2 = data0.concat(data1)
     
     let data3 = new Array();
     for(let i in Json){
@@ -38,18 +38,18 @@ module.exports = function(Json){
     
         data3.push(a);
     }
-    var data = data2.concat(data3)
+    let data = data2.concat(data3)
     
     
     
-    var links0 = JSON.stringify(data);
-    var links = JSON.parse(links0);
+    let links0 = JSON.stringify(data);
+    let links = JSON.parse(links0);
     
     //对links去重，赋值给dlinks
-    var source = new Array();	
-    var target = new Array();
+    let source = new Array();	
+    let target = new Array();
     
-    var dlinks = new Array();
+    let dlinks = new Array();
     
     for(let k = 0;k<links.length;k++){
     
