@@ -20,13 +20,9 @@ data() {
     }
 },
 
-mounted() {
-
-
-        // var nodes = nodesProcess(response.data)
-        // var links = linksProcess(response.data);
-        
-    var svg = d3.select("svg"),
+methods: {
+    d3(){
+         var svg = d3.select("svg"),
         width = +svg.attr("width"),
         height = +svg.attr("height");
 
@@ -153,6 +149,16 @@ mounted() {
 	  d.fy = null;
                 }
 
+    }
+},
+
+mounted() {
+
+
+        // var nodes = nodesProcess(response.data)
+        // var links = linksProcess(response.data);
+        
+   this.d3()
 
     },
 
@@ -170,7 +176,12 @@ mounted() {
             console.log(nodes);
             console.log(links);
 
-                var svg = d3.select("svg"),
+        //删除画布内的所有元素 更新视图
+        d3.select('svg')
+            .selectAll('*')
+            .remove();
+
+        var svg = d3.select("svg")  ,
         width = +svg.attr("width"),
         height = +svg.attr("height");
 
@@ -192,6 +203,7 @@ mounted() {
         var link = svg.append("g")
             .attr("class", "links")
             .selectAll("line")
+            .exit().remove()
             .data(links)
             .enter()
             .append("line")
@@ -212,6 +224,7 @@ mounted() {
         var node = svg.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
+            .exit().remove()
             .data(nodes)
             .enter()
             .append("circle")
