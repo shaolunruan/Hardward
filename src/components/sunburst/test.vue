@@ -10,6 +10,9 @@ import linksProcess from './links.js';
 import structure from './structure.js'
 import * as d3 from 'd3';
 
+import {data} from './data0'
+import {colorJob} from '../../../static/color.js'
+
 export default {
 
 
@@ -23,59 +26,97 @@ methods:{
             paintSunburst(){
                 
             var chart = this.$echarts.init(document.getElementById('sunburst'));
-                var item1 = {
-                    color: '#45B4FF'
-                };
-                var item2 = {
-                    color: '#FE8152'
-                };
-                var item3 = {
-                    color: '#52FF6E'
-                };
 
           var option = {
-                    series: {
-                        type: 'sunburst',
-                        // highlightPolicy: 'ancestor',
-                        data: this.data,
-                        radius: [0, '90%'],
-                        label: {
-                            rotate: 'radial'
-                        },
-                        // itemStyle:{
-                        //     color:['#45B4FF','#FE8152','#52FF6E','#52FF6E','#52FF6E']
-                        // },
-                        levels:[
-                            {},
-                            {},
-                            {},
-                            {       label:{
-                                    show:false
-                                }}
-                        ]
-                    }
-};
+
+            visualMap:{
+                type: 'continuous',
+                min: 0,
+                max: 15,
+                inRange: {
+                    color: ['#2D5F73', '#538EA6', '#F2D1B3', '#F2B8A2', '#F28C8C']
+            }},
+
+            series: {
+                type: 'sunburst',
+                // highlightPolicy: 'ancestor',
+                data: data,
+                radius: [0, '90%'],
+                label: {
+                    rotate: 'radial'
+                },
+                levels:[
+                    {},
+                    {},
+                    {},
+                    {       label:{
+                            show:false
+                        }}
+                ]
+            }
+}
             chart.setOption(option);
         }
 },
     mounted(){
-        this.$axios.get('/result')
-            .then(response=>{
-                var links = linksProcess(response.data);
 
-console.log(links);
-var root = d3.stratify()
-    .id(d=>{return d.target})
-    .parentId(d=>{return d.source})
-    (links)
-
-var d = root.ancestors()[0].children;;
-
-       this.data = structure(d);
-        console.log(this.data);
         this.paintSunburst();
-            })
 
+
+    },
+
+    computed: {
+        showData(){
+            return this.$store.state.data
+        }
+    },
+
+    watch:{
+        showData:(a,b)=>{
+            var links = linksProcess(a);
+
+            console.log(links);
+            var root = d3.stratify()
+                .id(d=>{return d.target})
+                .parentId(d=>{return d.source})
+                (links)
+
+            var d = root.ancestors()[0].children;;
+
+        var data = structure(d);
+      
+                    var chart = this.$echarts.init(document.getElementById('sunburst'));
+
+          var option = {
+
+            visualMap:{
+                type: 'continuous',
+                min: 0,
+                max: 15,
+                inRange: {
+                    color: ['#2D5F73', '#538EA6', '#F2D1B3', '#F2B8A2', '#F28C8C']
+            }},
+
+            series: {
+                type: 'sunburst',
+                // highlightPolicy: 'ancestor',
+                data: data,
+                radius: [0, '90%'],
+                label: {
+                    rotate: 'radial'
+                },
+                levels:[
+                    {},
+                    {},
+                    {},
+                    {       label:{
+                            show:false
+                        }}
+                ]
+            }
+}
+            chart.setOption(option);
+        }
     }
 
 }
