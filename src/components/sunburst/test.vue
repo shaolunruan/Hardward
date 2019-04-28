@@ -18,7 +18,6 @@ import {
 
 export default {
 
-
     data() {
         return {
             data: []
@@ -45,19 +44,25 @@ export default {
                     type: 'sunburst',
                     // highlightPolicy: 'ancestor',
                     data: data,
+                    
+                    // data:{
+                    //     label:{
+                    //         minAngle:90
+                    //     }
+                    // },
                     radius: [0, '90%'],
                     label: {
                         rotate: 'radial'
                     },
-                    levels: [{},
-                        {},
-                        {},
-                        {
-                            label: {
-                                show: false
-                            }
-                        }
-                    ]
+                    // levels: [{},
+                    //     {},
+                    //     {},
+                    //     {
+                    //         // label : {
+                    //         // minAngle:5//不知道为什么can't work
+                    //     // }
+                    //     }
+                    // ]
                 }
             }
             chart.setOption(option);
@@ -121,9 +126,9 @@ export default {
                         {},
                         {},
                         {
-                            label: {
-                                show: false
-                            }
+                            // label: {
+                            //     show: false
+                            // }
                         }
                     ]
                 }

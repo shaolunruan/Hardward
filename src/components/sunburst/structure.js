@@ -12,9 +12,21 @@ module.exports = function(d){
         let instance = new Object();
         instance.name = d[i].children[j].children[k].id;
         instance.value = 1;
+        //下面构造inst最大显示角度
+        instance.label = {
+            minAngle:10//不知道为什么can't work
+        };
         task.children.push(instance);
         };
+        //下面构造task最大显示角度
+        task.label = {
+            minAngle:10
+    };
         job.children.push(task)
+    };
+    //下面构造job最大显示角度
+    job.label = {
+        minAngle:20
     };
     data.push(job)
     }
