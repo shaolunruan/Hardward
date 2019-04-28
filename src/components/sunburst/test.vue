@@ -77,6 +77,7 @@ export default {
     },
 
     watch: {
+        //这里有bug：Error: ambiguous: R2_1
         showData: function(a, b){
             let links = linksProcess(a);
 
