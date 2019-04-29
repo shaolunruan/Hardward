@@ -1,4 +1,5 @@
 const resultModel = require('../db/model/result');
+const usageModel = require('../db/model/usage')
 
 //用来画主View视图的数据
 module.exports = function(req,res,next){
@@ -10,15 +11,46 @@ module.exports = function(req,res,next){
 
 //又想直接update result表里面的数据，关联查询绝对不会这么蠢。。再议
 
-let req_time = Number(req.query.name)
+// let req_time = Number(req.query.name)//先换成人工数据，后面记得管回来
+let req_time = 140000
 
+ let warningId = new Array();
     resultModel
     .where('start_time').lt(req_time)
     .where('end_time').gt(req_time)
     .limit(100)//最后记得删去
     .select(['inst_name','task_name','job_name','task_type','status','start_time','end_time','machine_id','util_cpu','util_mem'])
     .then(result=>{
-        res.json(result)
+        // res.json(result);
+        
+        
+        //以下获取所有machine编号数组
+        for(let i in result){
+            warningId.push(result[i].machine_id)
+        }; 
+        //    console.log(warningId);
+
+           //promiss
+
+
+        usageModel
+        .where('time_stamp').equals(140000)
+        .then(response=>{
+
+            let warningArray = new Array();
+            for(let i in warningId){
+                for(let j in response){
+                    if(warningId[i] == response[j].machine_id){
+                        let obj = new Object();
+                        obj.machine_id = warningId[i];
+                        obj.warning = response[j].warning;
+                        warningArray.push(obj)
+                    }
+                }
+            }
+            console.log(warningArray.length);
+        })
+
 
     })
 
