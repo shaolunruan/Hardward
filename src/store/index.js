@@ -7,7 +7,8 @@ Vue.use(Vuex);
 let state = {
     time_stamp:'',//之后可以设置时间戳的默认值
     data:[],
-    counter:0
+    counter:0,
+    warningArray:[]
 };
 
 let getters = {
@@ -27,8 +28,12 @@ let mutations = {
         state.data = d;
     },
 
-    increment(state){
-        state.counter = state.counter + 1
+    getarray(state,d){
+        state.warningArray = d;
+    },
+
+    increment(state,d){
+        state.counter = d
     }
 };
 
@@ -38,7 +43,8 @@ let actions = {
         Vue.http.get(`/result?name=${d}`)
                 .then(res=>{
                     // console.log(res.data);//证明可以取到res
-                    context.commit('getdata',res.data)
+                    context.commit('getdata',res.data.result);
+                    context.commit('getarray',res.data.warningArray)
                 });
     }
 };

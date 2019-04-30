@@ -11,9 +11,10 @@ module.exports = function(req,res,next){
 
 //又想直接update result表里面的数据，关联查询绝对不会这么蠢。。再议
 
-// let req_time = Number(req.query.name)//先换成人工数据，后面记得管回来
-let req_time = 140000
+let req_time = Number(req.query.name)//先换成人工数据，后面记得管回来
+// let req_time = 140000
 
+let o = new Object()
  let warningId = new Array();
     resultModel
     .where('start_time').lt(req_time)
@@ -21,20 +22,21 @@ let req_time = 140000
     .limit(100)//最后记得删去
     .select(['inst_name','task_name','job_name','task_type','status','start_time','end_time','machine_id','util_cpu','util_mem'])
     .then(result=>{
-        // res.json(result);
-        
+        o.result  = result
+        // res.json(result)
+
+
         
         //以下获取所有machine编号数组
         for(let i in result){
             warningId.push(result[i].machine_id)
         }; 
-        //    console.log(warningId);
 
            //promiss
 
 
         usageModel
-        .where('time_stamp').equals(140000)
+        .where('time_stamp').equals(req_time)
         .then(response=>{
 
             let warningArray = new Array();
@@ -48,7 +50,8 @@ let req_time = 140000
                     }
                 }
             }
-            console.log(warningArray.length);
+            o.warningArray = warningArray;
+            res.json(o);
         })
 
 
