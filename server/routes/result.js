@@ -29,10 +29,10 @@ let o = new Object()
         
         //以下获取所有machine编号数组
         for(let i in result){
-            warningId.push(result[i].machine_id)
+            warningId.push(result[i].machine_id)//优化过程，直接改成查找inst，别忘了用forEach
         }; 
 
-           //promiss
+           //promiss？？？
 
 
         usageModel

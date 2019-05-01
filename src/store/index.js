@@ -43,6 +43,7 @@ let actions = {
         Vue.http.get(`/result?name=${d}`)
                 .then(res=>{
                     // console.log(res.data);//证明可以取到res
+                    //将一个接口里的数据分成两部分，可以省下一个接口，不过速度偏慢
                     context.commit('getdata',res.data.result);
                     context.commit('getarray',res.data.warningArray)
                 });
