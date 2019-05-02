@@ -16,10 +16,11 @@ let req_time = Number(req.query.name)//先换成人工数据，后面记得管�
 
 let o = new Object()
  let warningId = new Array();
+
     resultModel
     .where('start_time').lt(req_time)
     .where('end_time').gt(req_time)
-    .limit(100)//最后记得删去
+    .limit(2000)//最后记得删去
     .select(['inst_name','task_name','job_name','task_type','status','start_time','end_time','machine_id','util_cpu','util_mem'])
     .then(result=>{
         o.result  = result
@@ -34,7 +35,7 @@ let o = new Object()
 
            //promiss？？？
 
-
+        //163050时刻有3706个异常节点，usage的个数应该不可能还是2600左右吧。。
         usageModel
         .where('time_stamp').equals(req_time)
         .then(response=>{

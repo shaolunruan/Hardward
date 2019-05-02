@@ -1,6 +1,6 @@
 <template>
     <div>
-        <svg width="1000" height="1000"></svg>
+        <svg width="1800" height="1000"></svg>
     </div>
 </template>
 
@@ -34,7 +34,7 @@ methods: {
         }).distance((d)=>{
             return d.value == 0.25 ? 70:10;}
         ))
-        .force("charge", d3.forceManyBody().strength(-15))
+        .force("charge", d3.forceManyBody().strength(-5))
             .force("x", d3.forceX())
             .force("y", d3.forceY())
         .force("center", d3.forceCenter(width / 2, height / 2));
