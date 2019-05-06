@@ -8,7 +8,7 @@ module.exports = function(req,res,next){
     usageModel
     .aggregate([
         {$match:{warning:{$eq:1}}},
-        {$limit:10000000},
+        {$limit:10000},
         {$group:{_id:'$time_stamp',warning:{$sum:1}}},
         {$sort:{'_id':1}}
     ])

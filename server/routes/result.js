@@ -20,12 +20,12 @@ let o = new Object()
     resultModel
     .where('start_time').lt(req_time)
     .where('end_time').gt(req_time)
-    .limit(2000)//最后记得删去
+    .limit(100)//最后记得删去
     .select(['inst_name','task_name','job_name','task_type','status','start_time','end_time','machine_id','util_cpu','util_mem'])
     .then(result=>{
         o.result  = result
         // res.json(result)
-
+        console.log(result.length);
 
         
         //以下获取所有machine编号数组
@@ -39,7 +39,7 @@ let o = new Object()
         usageModel
         .where('time_stamp').equals(req_time)
         .then(response=>{
-
+            console.log(response);
             let warningArray = new Array();
             for(let i in warningId){
                 for(let j in response){
@@ -48,9 +48,12 @@ let o = new Object()
                         obj.machine_id = warningId[i];
                         obj.warning = response[j].warning;
                         warningArray.push(obj)
+                        break
                     }
+                    
                 }
             }
+            //  console.log(warningArray);
             o.warningArray = warningArray;
             res.json(o);
         })

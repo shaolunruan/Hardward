@@ -173,8 +173,8 @@ mounted() {
             let nodes = nodesProcess(a)
             let links = linksProcess(a);
 
-            console.log(nodes);
-            console.log(links);
+            // console.log(nodes);
+            // console.log(links);
 
         //删除画布内的所有元素 更新视图
         d3.select('svg')

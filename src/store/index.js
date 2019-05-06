@@ -46,6 +46,7 @@ let actions = {
                     //将一个接口里的数据分成两部分，可以省下一个接口，不过速度偏慢
                     context.commit('getdata',res.data.result);
                     context.commit('getarray',res.data.warningArray)
+                    
                 });
     }
 };

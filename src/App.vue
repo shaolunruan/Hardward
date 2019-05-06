@@ -1,9 +1,9 @@
 <template>
 <div>
-        <!-- <fdtest></fdtest> -->
+        <fdtest></fdtest>
         <!-- <property></property> --><!-- <list></list> --><!-- <timestamp></timestamp> --><!-- <liquidfill></liquidfill> -->
-        <!-- <linec></linec> -->
-        <calendarGraph></calendarGraph>
+        <linec></linec>
+        <!-- <calendarGraph></calendarGraph> -->
         <!-- <sunburst></sunburst> -->
 
         <!-- <test></test> -->
