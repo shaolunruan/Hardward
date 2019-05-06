@@ -5,7 +5,7 @@ const usageModel = require('../db/model/usage')
 module.exports = function(req,res,next){
 
     let req_id = 'm_1934';
-    let req_time = 160000;
+    let req_time = 140000;
 
     usageModel
     //这种查询方式过慢，后期可以优化
