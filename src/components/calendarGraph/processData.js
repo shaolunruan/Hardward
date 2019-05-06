@@ -46,7 +46,8 @@ module.exports = function(Json){
 
     //编辑算法，求出异常域，d表示一条数据
     function warningValue(d){
-        let value0 = d.cpu_util_percent*(96/138)+d.mem_util_percent*(49/138)+d.disk_io_percent*(131/138);
+        // sum1 = int(one_line[2]) * 107 / 165 + int(one_line[3]) * 71 / 165 + int(one_line[8]) * 152 / 165
+        let value0 = d.cpu_util_percent*(107/165)+d.mem_util_percent*(71 / 165)+d.disk_io_percent*(152 / 165);
         //算法后期弥补，可能得出的结果会不合理
         return value0;
 

@@ -41,8 +41,8 @@
                         left:100
                     },
                     visualMap: {
-                        min: 45,
-                        max: 93,
+                        min: 75,
+                        max: 88,
                         calculable: true,
                         orient: 'horizontal',
                         left: 'center',
