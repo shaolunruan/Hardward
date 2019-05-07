@@ -30,16 +30,17 @@ let o = new Object()
         
         //以下获取所有machine编号数组
         for(let i in result){
-            warningId.push(result[i].machine_id)//优化过程，直接改成查找inst，别忘了用forEach
+            // warningId.push([result[i].machine_id,result[i].inst_name])//优化过程，直接改成查找inst，别忘了用forEach
+            warningId.push(result[i].machine_id)
         }; 
-
+        // console.log(warningId);
            //promiss？？？
 
         //163050时刻有3706个异常节点，usage的个数应该不可能还是2600左右吧。。
         usageModel
         .where('time_stamp').equals(req_time)
         .then(response=>{
-            console.log(response);
+            // console.log(response);
             let warningArray = new Array();
             for(let i in warningId){
                 for(let j in response){
