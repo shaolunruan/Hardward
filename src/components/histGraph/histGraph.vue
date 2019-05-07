@@ -3,7 +3,7 @@
     <transition id="loading-faade">
       <div v-show="notdone" class="loading">loading...</div>
     </transition>
-    <div id="histGraph" style="width:1000px;height:600px"></div>
+    <div id="histGraph" style="width:300px;height:300px"></div>
     <!-- {{data}} -->
   </div>
 </template>
@@ -14,7 +14,9 @@ export default {
   data: function() {
     return {
       data: {},
-      notdone: true
+      notdone: true,
+      
+      
     };
   },
 
@@ -24,60 +26,36 @@ export default {
 
       var gain = 0.9;
       var gap = 0;
-      var myColor = ["#e63810", "#ff6b00", "#e3b61f", "#13b5b1"];
+      var myColor = ["#e63810", "#ff6b00", "#e3b61f", "#13b5b1","#68B0E8"];
       var myBgColor = [
         "rgba(230,56,16,0.2)",
         "rgba(255,107,0,0.2)",
         "rgba(227,182,31,0.2)",
-        "rgba(19,181,177,0.2)"
+        "rgba(19,181,177,0.2)",
+        "rgba(104,176,232,0.2)"
       ];
       //柱子数据
       var data = this.data;
-      console.log(data);
-
+        
       var option = {
         // backgroundColor: "rgba(0,0,0,0.8)",
-        // grid: [
-        //   {
-        //     left: "3%",
-        //     top: "10%",
-        //     right: "2%",
-        //     bottom: "5%",
-        //     containLabel: true
-        //   },
-        //   {
-        //     left: "3%",
-        //     top: "10%",
-        //     right: "2%",
-        //     bottom: "5%",
-        //     containLabel: true
-        //   }
-        // ],
+        grid: {
+          left: "3%",
+          top: "10%",
+          right: "2%",
+          bottom: "5%",
+          containLabel: true
+        },
         xAxis: [
           {
-            // show: false,
-            // gridIndex: 0,
-            type: "category",
-        
-            axisLabel: {
-              textStyle: {
-                color: function(param, index) {
-                  return myColor[index];
-                },
-                fontSize: 13 * gain
-              }
-            }
-          },
-          {
-            // show: false,
-            // gridIndex: 1,
+            show: true,
             type: "category",
             axisTick: {
               show: false
             },
             axisLine: {
               lineStyle: {
-                color: "rgba(160,160,160,0.3)"
+                color: "rgba(160,160,160,0.0)"
               }
             },
             axisLabel: {
@@ -86,24 +64,63 @@ export default {
                   return myColor[index];
                 },
                 fontSize: 13 * gain
-              }
-            }
-            // data: ["01", "02", "03", "04", "05"]
+              },
+              rotate:-75
+            },
+            data: data.name
+          },
+          {
+            type: "category",
+            axisLine: {
+              show: false
+            },
+            axisTick: {
+              show: false
+            },
+            axisLabel: {
+              show: false
+            },
+            splitArea: {
+              show: false
+            },
+            splitLine: {
+              show: false
+            },
+            data: []
           }
         ],
         yAxis: [
           {
-            // gridIndex: 0,
+            show:false,
             type: "value",
-            name: "单位：件",
-            max: 25
+ 
           },
           {
-            // gridIndex: 0,
+            // show:false,
             type: "value",
             name: "单位：件",
-            max: 100,
-            min: 90
+            nameGap: 35 + gap,
+            nameTextStyle: {
+              color: "#ffffff",
+              fontSize: 16 * gain
+            },
+            axisTick: {
+              show: false
+            },
+            axisLine: {
+              show: false
+            },
+            splitLine: {
+              lineStyle: {
+                color: "rgba(160,160,160,0.3)"
+              }
+            },
+            axisLabel: {
+              textStyle: {
+                color: "rgba(255,255,255,0.8)",
+                fontSize: 14 * gain
+              }
+            }
           }
         ],
         series: [
@@ -127,14 +144,14 @@ export default {
                 show: true,
                 formatter: function(params) {
                   var stuNum = 0;
-                  data.name.forEach(function(value, index, array) {
+                  data.barScale.forEach(function(value, index, array) {
                     if (params.dataIndex == index) {
                       stuNum = value;
                     }
                   });
                   return stuNum;
                 },
-                position: "bottom",
+                position: "top",
                 textStyle: {
                   color: function(params) {
                     var num = myBgColor.length;
@@ -145,7 +162,7 @@ export default {
               }
             },
             barWidth: "25%",
-            data: [100, 100, 100, 100]
+            data: new Array(data.data.length).fill(data.barMax)
           },
           {
             type: "bar",
@@ -163,37 +180,20 @@ export default {
             },
             label: {
               normal: {
-                show: false
-              }
-            },
-            barWidth: "25%",
-            xAxisIndex: 0,
-            yAxisIndex: 0,
-            data: [data.data[0], data.data[1], data.data[2], data.data[3]]
-          },
-          {
-            type: "bar",
-            itemStyle: {
-              normal: {
                 show: true,
-                color: function(params) {
-                  var num = myColor.length;
-                  return myColor[params.dataIndex % num];
-                },
-                barBorderRadius: 50,
-                borderWidth: 0,
-                borderColor: "#333"
-              }
-            },
-            label: {
-              normal: {
-                show: false
+                formatter: function(params) {
+                  var stuNum = 0;
+                  data.label.forEach(function(value, index, array) {
+                    if (params.dataIndex == index) {
+                      stuNum = value;
+                    }
+                  });
+                  return stuNum;
+                }
               }
             },
             barWidth: "25%",
-            xAxisIndex: 1,
-            yAxisIndex: 1,
-            data: [data.data[4]]
+            data: data.data
           }
         ]
       };
@@ -204,24 +204,20 @@ export default {
   mounted() {
     this.$axios.get("/histGraph").then(response => {
       this.notdone = false;
-      //   this.data = processData(response.data);
+      //每个bar的比例尺，将这些值映射到0-barMax
+      let barScale = [15,10,30,30,100];
+      //bar的最大值
+      let barMax = 30
+      let data = {}
+      
+      this.data = processData(response.data,barScale,barMax);
+      this.data.barScale = [...barScale];
+      this.data.barMax=barMax
+      console.log(data)
+
       //请求完成数据后渲染视图
 
-      let res = response.data;
-      this.data.data = [
-        res.cpu_util_percent,
-        res.disk_io_percent,
-        res.net_in,
-        res.net_out,
-        res.mem_util_percent
-      ];
-      this.data.name = [
-        "cpu_util_percent",
-        "disk_io_percent",
-        "net_in",
-        "net_out",
-        "mem_util_percent"
-      ];
+
       this.paintCalendar();
     });
   }
