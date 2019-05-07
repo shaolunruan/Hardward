@@ -179,7 +179,10 @@ let A0 = this.$store.state.warningArray
 //实现异常数组
 let A = new Array();
 for(let a in A0){
-    A.push(A0[a].inst_id)
+    if(A0[a].warning == 1){
+         A.push(A0[a].inst_id)
+
+    }
 }
             let nodes = nodesProcess(a)
             let links = linksProcess(a);
@@ -234,10 +237,10 @@ for(let a in A0){
 
         let node = svg.append("g")
             .attr("class", "nodes")
-            .selectAll("circle")
-            .exit().remove()
+            .selectAll("g")
             .data(nodes)
-            .enter()
+            .enter().append('g')
+
             .append("circle")
             .attr("r", (d)=>{
                 switch(d.group){
@@ -254,9 +257,6 @@ for(let a in A0){
                         return 3;
                 }
             })
-            // .attr("fill", function(d) {
-            //     return color(d.group);
-            // })
             .attr("fill", function(d) {
                 return color(d.group);
             })
@@ -271,12 +271,6 @@ for(let a in A0){
                 }
 
 
-                // if(d.group==3){
-                //     return color(7)
-                // }
-                // else{
-                //     return color(1)
-                // }
             })
             .call(d3.drag()
                 .on("start", dragstarted)
@@ -284,15 +278,13 @@ for(let a in A0){
                 .on("end", dragended)
             )
 
-        node.append("title")
-            .text(function(d) {
-                return d.id;
-            })
+//想加标签显示节点的相关系数，失败。。以后一定好好学d3
 
-        node.append("text")
-            .text(function(d) {
-                return d.id;
-            })
+// let labels = node.append('text')
+//                 .text(d=>{
+//                     return d.id
+//                 })
+
 
         simulation
             .nodes(nodes)
@@ -340,9 +332,7 @@ for(let a in A0){
 	  if (!d3.event.active) simulation.alphaTarget(0);
 	  d.fx = null;
 	  d.fy = null;
-                }
-
-
+            }
         }
     },
     }
@@ -359,4 +349,9 @@ for(let a in A0){
         stroke: #fff;
         stroke-width: 0.5px;
     }
+    text {
+  font-family: sans-serif;
+  font-size: 10px;
+}
+
 </style>

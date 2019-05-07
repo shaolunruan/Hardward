@@ -20,7 +20,7 @@ let o = new Object()
     resultModel
     .where('start_time').lt(req_time)
     .where('end_time').gt(req_time)
-    .limit(100)//最后记得删去
+    // .limit(100)//最后记得删去
     .select(['inst_name','task_name','job_name','task_type','status','start_time','end_time','machine_id','util_cpu','util_mem'])
     .then(result=>{
         o.result  = result
@@ -49,7 +49,7 @@ let o = new Object()
                         obj.inst_id = warningId[i][1];
                         obj.warning = response[j].warning;
                         warningArray.push(obj)
-                        break
+                        break;
                     }
                     
                 }
