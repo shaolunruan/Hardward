@@ -2,11 +2,12 @@
 <div>
         <fdtest></fdtest>
         <!-- <property></property> --><!-- <list></list> --><!-- <timestamp></timestamp> --><!-- <liquidfill></liquidfill> -->
-        <linec></linec>
-        <!-- <calendarGraph></calendarGraph> -->
+        <!-- <linec></linec> -->
+        <calendarGraph></calendarGraph>
         <!-- <sunburst></sunburst> -->
 
         <!-- <test></test> -->
+        <hist></hist>
 
 
     </div>
@@ -20,6 +21,7 @@ import fdtest from './components/fdGraph/fd.vue'
 import sunburst from './components/sunburst/test.vue'
 
 import test from './components/others/test.vue'
+import hist from './components/histGraph/histGraph.vue'
 
 import './assets/css/bootstrap.min.css'
 
@@ -31,7 +33,8 @@ export default {
         calendarGraph,
         fdtest,
         sunburst,
-        test
+        test,
+        hist
     }
 }
 </script>
