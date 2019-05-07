@@ -138,7 +138,7 @@ import processData from './structure.js'
         this.$axios.get('/view')
             .then(response=>{
                 this.data = processData(response.data);
-                console.log(this.data);
+                // console.log(this.data);
                 this.paintChart();
                  console.log(this.$store.state.time_stamp);
             })

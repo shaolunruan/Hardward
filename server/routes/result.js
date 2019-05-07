@@ -30,10 +30,10 @@ let o = new Object()
         
         //以下获取所有machine编号数组
         for(let i in result){
-            // warningId.push([result[i].machine_id,result[i].inst_name])//优化过程，直接改成查找inst，别忘了用forEach
-            warningId.push(result[i].machine_id)
+            warningId.push([result[i].machine_id,result[i].inst_name])//优化过程，直接改成查找inst，别忘了用forEach
+            // warningId.push(result[i].machine_id)
         }; 
-        // console.log(warningId);
+        console.log(warningId);
            //promiss？？？
 
         //163050时刻有3706个异常节点，usage的个数应该不可能还是2600左右吧。。
@@ -44,9 +44,9 @@ let o = new Object()
             let warningArray = new Array();
             for(let i in warningId){
                 for(let j in response){
-                    if(warningId[i] == response[j].machine_id){
+                    if(warningId[i][0] == response[j].machine_id){
                         let obj = new Object();
-                        obj.machine_id = warningId[i];
+                        obj.inst_id = warningId[i][1];
                         obj.warning = response[j].warning;
                         warningArray.push(obj)
                         break
@@ -54,7 +54,9 @@ let o = new Object()
                     
                 }
             }
-            //  console.log(warningArray);
+             console.log(warningArray);
+             console.log(warningArray.length);
+
             o.warningArray = warningArray;
             res.json(o);
         })
