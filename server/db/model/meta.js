@@ -48,8 +48,8 @@ let metaSchema = mongoose.Schema({
 
     }
 
-},{versionKey:false})
+}, { versionKey: false })
 
 // 定义model操作数据库
 
-module.exports = mongoose.model('meta',metaSchema,'machine_meta');
+module.exports = mongoose.model('meta', metaSchema, 'machine_meta');

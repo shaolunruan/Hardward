@@ -46,8 +46,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       '/meta':{target:'http://localhost:3000',changeOrigin:true},
       '/usage':{target:'http://localhost:3000',changeOrigin:true},
       '/result':{target:'http://localhost:3000',changeOrigin:true},
-      '/view':{target:'http://localhost:3000',changeOrigin:true}
-
+      '/view':{target:'http://localhost:3000',changeOrigin:true},
+      '/histGraph':{target:'http://localhost:3000',changeOrigin:true}
 
     },
 

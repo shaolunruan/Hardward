@@ -34,4 +34,8 @@ module.exports = function(app){
 
     //获取result数据
     app.get('/result',require('./result'));
+
+    //获取直方图单个节点数据
+    app.get('/histGraph',require('./histGraph'));
+
 }
