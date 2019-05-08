@@ -6,9 +6,17 @@ const usageModel = require('../db/model/usage')
 module.exports = function(req,res,next){
 
     usageModel
+//     .aggregate([{
+//         $group:{
+//               _id: {machine_id: "$machine_id", time_stamp: "$time_stamp"},
+//               machine_id:{$push:"$machine_id"},
+//               time_stamp: {$push: "$time_stamp"},
+//               warning:{$push:"$warning"}
+//         }
+//   }])
     .aggregate([
         {$match:{warning:{$eq:1}}},
-        {$limit:10000},
+        // {$limit:50000},
         {$group:{_id:'$time_stamp',warning:{$sum:1}}},
         {$sort:{'_id':1}}
     ])

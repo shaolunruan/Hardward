@@ -77,26 +77,26 @@ import processData from './structure.js'
             right: 10,
             pieces: [{
                 gt: 0,
-                lte: 1750,
+                lte: 400,
                 color: '#096'
             }, {
-                gt: 1750,
-                lte: 2500,
+                gt: 400,
+                lte: 600,
                 color: '#ffde33'
             }, {
-                gt: 2500,
-                lte: 3000,
+                gt: 600,
+                lte: 800,
                 color: '#ff9933'
             }, {
-                gt: 3000,
-                lte: 3250,
+                gt: 800,
+                lte: 870,
                 color: '#cc0033'
             }, {
-                gt: 3250,
-                lte: 3500,
+                gt: 870,
+                lte: 940,
                 color: '#660099'
             }, {
-                gt: 3500,
+                gt: 940,
                 color: '#7e0023'
             }],
             outOfRange: {
@@ -112,15 +112,15 @@ import processData from './structure.js'
             markLine: {
                 silent: true,
                 data: [{
-                    yAxis: 1750
+                    yAxis: 400
                 }, {
-                    yAxis: 2500
+                    yAxis: 600
                 }, {
-                    yAxis: 3000
+                    yAxis: 800
                 }, {
-                    yAxis: 3250
+                    yAxis: 870
                 }, {
-                    yAxis: 3500
+                    yAxis: 940
                 }]
             }
         }
@@ -138,6 +138,7 @@ import processData from './structure.js'
         this.$axios.get('/view')
             .then(response=>{
                 this.data = processData(response.data);
+                // console.log(this.data);
                 this.paintChart();
                  console.log(this.$store.state.time_stamp);
             })

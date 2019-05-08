@@ -1,6 +1,6 @@
 <template>
     <div>
-        <svg width="1000" height="1000"></svg>
+        <svg width="1800" height="1800"></svg>
     </div>
 </template>
 
@@ -34,7 +34,7 @@ methods: {
         }).distance((d)=>{
             return d.value == 0.25 ? 70:10;}
         ))
-        .force("charge", d3.forceManyBody().strength(-15))
+        .force("charge", d3.forceManyBody().strength(-5))
             .force("x", d3.forceX())
             .force("y", d3.forceY())
         .force("center", d3.forceCenter(width / 2, height / 2));
@@ -165,23 +165,37 @@ mounted() {
     computed: {
         showData(){
             return this.$store.state.data
-        }
+        },
+        // showArray(){
+        //     return this.$store.state.warningArray
+        // }
     },
 
     watch: {
-        showData:(a,b)=>{
+        showData(a,b){
+//之前使用箭头函数有报错了，改为一般写法又正确了……this的指向问题还是不明确
+let A0 = this.$store.state.warningArray
+
+//实现异常数组
+let A = new Array();
+for(let a in A0){
+    if(A0[a].warning == 1){
+         A.push(A0[a].inst_id)
+
+    }
+}
             let nodes = nodesProcess(a)
             let links = linksProcess(a);
+            console.log(typeof nodes);
+            console.log(nodes);
 
-            // console.log(nodes);
-            // console.log(links);
 
         //删除画布内的所有元素 更新视图
         d3.select('svg')
             .selectAll('*')
             .remove();
 
-        let svg = d3.select("svg")  ,
+        let svg = d3.select("svg"),
         width = +svg.attr("width"),
         height = +svg.attr("height");
 
@@ -223,10 +237,10 @@ mounted() {
 
         let node = svg.append("g")
             .attr("class", "nodes")
-            .selectAll("circle")
-            .exit().remove()
+            .selectAll("g")
             .data(nodes)
-            .enter()
+            .enter().append('g')
+
             .append("circle")
             .attr("r", (d)=>{
                 switch(d.group){
@@ -246,18 +260,31 @@ mounted() {
             .attr("fill", function(d) {
                 return color(d.group);
             })
+            .attr("fill", (d)=>{
+                //先不纠结forEach了，以下是实现节点的颜色渲染的有效手段
+                if(d.group == 1){
+                    if(A.some(item=>{return item == d.id})){
+                        return color(7)
+                    }else return color(d.group)
+                }else{
+                    return color(d.group)
+                }
+
+
+            })
             .call(d3.drag()
                 .on("start", dragstarted)
                 .on("drag", dragged)
                 .on("end", dragended)
             )
 
-        node.append("title")
-            .text(function(d) {
-                return d.id;
-            })
+//想加标签显示节点的相关系数，失败。。以后一定好好学d3
 
-        node.append("text")
+// let labels = node.append('text')
+//                 .text(d=>{
+//                     return d.id
+//                 })
+       node.append("title")
             .text(function(d) {
                 return d.id;
             })
@@ -308,9 +335,7 @@ mounted() {
 	  if (!d3.event.active) simulation.alphaTarget(0);
 	  d.fx = null;
 	  d.fy = null;
-                }
-
-
+            }
         }
     },
     }
@@ -327,4 +352,9 @@ mounted() {
         stroke: #fff;
         stroke-width: 0.5px;
     }
+    text {
+  font-family: sans-serif;
+  font-size: 10px;
+}
+
 </style>

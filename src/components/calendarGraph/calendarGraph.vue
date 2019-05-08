@@ -41,14 +41,14 @@
                         left:100
                     },
                     visualMap: {
-                        min: 45,
-                        max: 85,
+                        min: 75,
+                        max: 88,
                         calculable: true,
                         orient: 'horizontal',
                         left: 'center',
                         top: 'top',
                                 inRange: {
-            color: ['#80bfff', '#fff','#bf0000'],
+            color: ['#fff','#bf0000'],
             opacity: 0.9,
             // colorSaturation:0.5//饱和度
         },
