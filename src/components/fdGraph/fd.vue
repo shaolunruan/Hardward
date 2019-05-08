@@ -1,6 +1,6 @@
 <template>
     <div>
-        <svg width="1800" height="1000"></svg>
+        <svg width="1800" height="1800"></svg>
     </div>
 </template>
 
@@ -284,7 +284,10 @@ for(let a in A0){
 //                 .text(d=>{
 //                     return d.id
 //                 })
-
+       node.append("title")
+            .text(function(d) {
+                return d.id;
+            })
 
         simulation
             .nodes(nodes)
