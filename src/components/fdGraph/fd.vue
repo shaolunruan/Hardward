@@ -184,9 +184,13 @@ for(let a in A0){
 
     }
 }
+
+
+
             let nodes = nodesProcess(a)
             let links = linksProcess(a);
-            console.log(typeof nodes);
+            // console.log(typeof nodes);
+            console.log(A0);
             console.log(nodes);
 
 
@@ -207,7 +211,7 @@ for(let a in A0){
         }).distance((d)=>{
             return d.value == 0.25 ? 70:10;}
         ))
-        .force("charge", d3.forceManyBody().strength(-15))
+        .force("charge", d3.forceManyBody().strength(-10))
             .force("x", d3.forceX())
             .force("y", d3.forceY())
         .force("center", d3.forceCenter(width / 2, height / 2));

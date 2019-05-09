@@ -6,7 +6,7 @@ const usageModel = require('../db/model/usage')
 module.exports = function(req,res,next){
 
     usageModel
-    .findOne({machine_id:'m_1933',time_stamp:'100020'})
+    .findOne({machine_id:'m_3147',time_stamp:'114550'})
     
     .then(d=>{
         res.json(d)

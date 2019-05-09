@@ -9,9 +9,14 @@ import linksProcess from './links.js';
 import structure from './structure.js'
 import * as d3 from 'd3';
 
+// import {
+//     data
+// } from './data0'
+
 import {
-    data
-} from './data0'
+    data1
+} from './data1'
+
 import {
     colorJob
 } from '../../../static/color.js'
@@ -26,6 +31,22 @@ export default {
 
     methods: {
         paintSunburst() {
+            //////////////////////////////////
+            let links = linksProcess(data1);
+
+            let root = d3.stratify()
+                .id(d => {
+                    return d.target
+                })
+                .parentId(d => {
+                    return d.source
+                })
+                (links)
+
+            let d = root.ancestors()[0].children;;
+
+            let data = structure(d);
+            ///////////////////////////////
 
             let chart = this.$echarts.init(document.getElementById('sunburst'));
 

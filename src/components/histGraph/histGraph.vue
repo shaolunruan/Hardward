@@ -3,7 +3,7 @@
     <transition id="loading-faade">
       <div v-show="notdone" class="loading">loading...</div>
     </transition>
-    <div id="histGraph" style="width:300px;height:300px"></div>
+    <div id="histGraph" style="width:800px;height:800px"></div>
     <!-- {{data}} -->
   </div>
 </template>
@@ -205,7 +205,7 @@ export default {
     this.$axios.get("/histGraph").then(response => {
       this.notdone = false;
       //每个bar的比例尺，将这些值映射到0-barMax
-      let barScale = [15,10,30,30,100];
+      let barScale = [100,20,50,30,100];
       //bar的最大值
       let barMax = 30
       let data = {}

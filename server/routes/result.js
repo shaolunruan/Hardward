@@ -19,7 +19,7 @@ module.exports = function (req, res, next) {
     resultModel
         .where('start_time').lt(req_time)
         .where('end_time').gt(req_time)
-        .limit(100)//最后记得删去
+        // .limit(100)//最后记得删去
         .select(['inst_name', 'task_name', 'job_name', 'task_type', 'status', 'start_time', 'end_time', 'machine_id', 'util_cpu', 'util_mem'])
         .then(result => {
             o.result = result
@@ -29,7 +29,10 @@ module.exports = function (req, res, next) {
 
             //以下获取所有machine编号数组
             for (let i in result) {
-                warningId.push(result[i].machine_id)
+                let a = new Array();
+                a.push(result[i].machine_id)
+                a.push(result[i].inst_name)
+                warningId.push(a)
             };
 
             //promiss
@@ -42,14 +45,16 @@ module.exports = function (req, res, next) {
                     let warningArray = new Array();
                     for (let i in warningId) {
                         for (let j in response) {
-                            if (warningId[i] == response[j].machine_id) {
+                            if (warningId[i][0] == response[j].machine_id) {
                                 let obj = new Object();
-                                obj.machine_id = warningId[i];
+                                obj.inst_id = warningId[i][1];
                                 obj.warning = response[j].warning;
                                 warningArray.push(obj)
+                                break
                             }
                         }
                     }
+                    console.log(warningArray);
                     o.warningArray = warningArray;
                     res.json(o);
                 })
