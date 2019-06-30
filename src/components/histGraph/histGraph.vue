@@ -3,7 +3,7 @@
     <transition id="loading-faade">
       <div v-show="notdone" class="loading">loading...</div>
     </transition>
-    <div id="histGraph" style="width:800px;height:800px"></div>
+    <div id="histGraph" style="width:300px;height:300px"></div>
     <!-- {{data}} -->
   </div>
 </template>

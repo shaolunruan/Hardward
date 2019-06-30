@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div id="sunburst" style="width:1000px;height:1000px"></div>
+    <div id="sunburst" style="width:500px;height:500px"></div>
 </div>
 </template>
 

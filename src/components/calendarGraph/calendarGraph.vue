@@ -3,7 +3,7 @@
         <transition id="loading-faade">
             <div v-show="notdone" class="loading">loading...</div>
         </transition>
-        <div id="calendar" style="width:1000px;height:600px"></div>
+        <div id="calendar" style="height:1000px"></div>
         <!-- {{data}} -->
     </div>
 </template>
@@ -18,7 +18,6 @@
                 notdone : true
 
             }
-
         },
 
         methods: {

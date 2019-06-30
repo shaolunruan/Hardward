@@ -8,15 +8,24 @@
             <div class="col-lg-8">
                 <linec></linec>
             </div>
+        </div>
 
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="col-lg-3">
+                    <hist></hist>
+                </div>
+                <div class="col-lg-9">
+                    <calendarGraph></calendarGraph>
+                </div>
+            </div>
+            <div class="col-lg-4 col-lg-offset-0.5">
+                <sunburst></sunburst>
+            </div>
         </div>
     </div>
         
-        
         <!-- <property></property> --><!-- <list></list> --><!-- <timestamp></timestamp> --><!-- <liquidfill></liquidfill> -->
-        <!-- <calendarGraph></calendarGraph> -->
-        <!-- <sunburst></sunburst> -->
-        <!-- <hist></hist> -->
 
         <!-- <test></test> -->
 
