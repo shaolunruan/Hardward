@@ -1,7 +1,17 @@
 <template>
     <div>
-        <svg width="1800" height="1800"></svg>
+        <svg></svg>
+
+        <!-- 测试bootstrap -->
+    <!-- <hr>
+    <button class="btn btn-primary">确定</button>
+    <button class="btn btn-success">使用</button>
+    <button class="btn btn-danger">注意</button>
+
+    <hr>
+    <router-view/> -->
     </div>
+
 </template>
 
 <script>

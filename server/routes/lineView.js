@@ -16,7 +16,7 @@ module.exports = function(req,res,next){
 //   }])
     .aggregate([
         {$match:{warning:{$eq:1}}},
-        // {$limit:50000},
+        {$limit:2000000},
         {$group:{_id:'$time_stamp',warning:{$sum:1}}},
         {$sort:{'_id':1}}
     ])

@@ -1,13 +1,24 @@
 <template>
 <div>
-        <fdtest></fdtest>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+                <fdtest></fdtest>
+            </div>
+            <div class="col-lg-8">
+                <linec></linec>
+            </div>
+
+        </div>
+    </div>
+        
+        
         <!-- <property></property> --><!-- <list></list> --><!-- <timestamp></timestamp> --><!-- <liquidfill></liquidfill> -->
-        <linec></linec>
         <!-- <calendarGraph></calendarGraph> -->
         <!-- <sunburst></sunburst> -->
+        <!-- <hist></hist> -->
 
         <!-- <test></test> -->
-        <!-- <hist></hist> -->
 
 
     </div>

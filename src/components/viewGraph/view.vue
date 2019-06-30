@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div id="line" style="width:80%;height:1000px"></div>
+    <div id="line" style="height:500px"></div>
 </div>
 </template>
 
