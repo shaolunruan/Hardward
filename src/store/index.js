@@ -8,7 +8,8 @@ let state = {
     time_stamp:'',//之后可以设置时间戳的默认值
     data:[],
     counter:0,
-    warningArray:[]
+    warningArray:[],
+    inst_name:''
 };
 
 let getters = {
@@ -34,6 +35,10 @@ let mutations = {
 
     increment(state,d){
         state.counter = d
+    },
+
+    submitInst(state,d){
+        state.inst_name = d
     }
 };
 
@@ -48,6 +53,14 @@ let actions = {
                     context.commit('getarray',res.data.warningArray)
                     
                 });
+    },
+
+    getInst(context,d){
+        context.commit('submitInst',d);
+// 该方法是在js文件中引用vuex 的状态参数的 
+        let time = store.state.time_stamp;
+        // console.log(time);
+        Vue.http.get(`/usage?id=${d}&name=${time}`)
     }
 };
 

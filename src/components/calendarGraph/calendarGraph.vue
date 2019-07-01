@@ -66,20 +66,7 @@
                             show:false,
 
                         },
-//                         itemStyle:{
-// color: {
-//     type: 'radial',
-//     x: 0.5,
-//     y: 0.5,
-//     r: 0.5,
-//     colorStops: [{
-//         offset: 0, color: 'red' // 0% 处的颜色
-//     }, {
-//         offset: 1, color: 'red' // 100% 处的颜色
-//     }],
-//     global: false // 缺省为 false
-// }
-//                         },
+
                                 dayLabel: {
                                     nameMap:  []
                                 },

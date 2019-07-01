@@ -293,7 +293,15 @@ for(let a in A0){
             )
             //以下给d3元素添加了鼠标点击事件
             .on('click',(d)=>{
+                if(d.group == 1){
                 console.log(d.id);
+                this.$store.dispatch('getInst',d.id);
+                }
+                else if(d.group == 2){
+                    alert('Warning! This is a TASK node\nPlease click an INSTANCE node!')
+                }else if(d.group == 3){
+                    alert('Warning! This is a JOB node\nPlease click an INSTANCE node!')
+                }
             })
 
 //想加标签显示节点的相关系数，失败。。以后一定好好学d3
