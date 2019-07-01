@@ -51,6 +51,7 @@ export default {
             let chart = this.$echarts.init(document.getElementById('sunburst'));
 
             let option = {
+                backgroundColor: "#EFEBE1",
 
                 visualMap: {
                     type: 'continuous',

@@ -29,6 +29,7 @@ import processData from './structure.js'
 
 
     let  option = {
+         backgroundColor: "#EFEBE1",
         title: {
             text: 'Anomaly Counter'
         },

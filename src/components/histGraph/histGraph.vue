@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="margin">
     <transition id="loading-faade">
       <div v-show="notdone" class="loading">loading...</div>
     </transition>
@@ -38,7 +38,7 @@ export default {
       var data = this.data;
         
       var option = {
-        // backgroundColor: "rgba(0,0,0,0.8)",
+        backgroundColor: "#EFEBE1",
         grid: {
           left: "3%",
           top: "10%",
@@ -241,4 +241,8 @@ export default {
 .loading-fade-leave-active {
   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
+
+/* .margin{
+  margin-top:20px
+} */
 </style>

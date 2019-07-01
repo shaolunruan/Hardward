@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="t">
         <svg width="711" height="500"></svg>
 
         <!-- 测试bootstrap -->
@@ -221,7 +221,7 @@ for(let a in A0){
         }).distance((d)=>{
             return d.value == 0.25 ? 70:10;}
         ))
-        .force("charge", d3.forceManyBody().strength(-4))
+        .force("charge", d3.forceManyBody().strength(-5))
             .force("x", d3.forceX())
             .force("y", d3.forceY())
         .force("center", d3.forceCenter(width / 2, height / 2));
@@ -328,10 +328,10 @@ for(let a in A0){
 
             node
                 .attr("cx", function(d) {
-                    return d.x = Math.min(width - 6, d.x);
+                    return d.x = Math.max(6,Math.min(width - 6, d.x));
                 })
                 .attr("cy", function(d) {
-                    return d.y = Math.min(height - 6, d.y);
+                    return d.y = Math.max(6,Math.min(height - 6, d.y));
                 })
         }
         		function dragstarted(d) {
@@ -370,5 +370,8 @@ for(let a in A0){
   font-family: sans-serif;
   font-size: 10px;
 }
+    .t {
+        background-color: #EFEBE1;
+    }
 
 </style>

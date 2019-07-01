@@ -3,7 +3,7 @@
         <transition id="loading-faade">
             <div v-show="notdone" class="loading">loading...</div>
         </transition>
-        <div id="calendar" style="height:1000px"></div>
+        <div id="calendar" style="width:800px;height:300px"></div>
         <!-- {{data}} -->
     </div>
 </template>
@@ -26,6 +26,8 @@
                 let chart = this.$echarts.init(document.getElementById('calendar'));
                 // console.log('paint', this.data)
                 let option = {
+                    
+        backgroundColor: "#EFEBE1",
                     title: {
                         top: 5,
                         left: 'left', //'center',

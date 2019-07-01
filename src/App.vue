@@ -1,5 +1,6 @@
 <template>
-<div>
+<div class="BKG">
+    <div class="margin"></div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4">
@@ -9,17 +10,17 @@
                 <linec></linec>
             </div>
         </div>
-
+<div class="margin"></div>
         <div class="row">
             <div class="col-lg-8">
                 <div class="col-lg-3">
                     <hist></hist>
                 </div>
-                <div class="col-lg-9">
+                <div class="col-lg-8 col-lg-offset-1">
                     <calendarGraph></calendarGraph>
                 </div>
             </div>
-            <div class="col-lg-4 col-lg-offset-0.5">
+            <div class="col-lg-4">
                 <sunburst></sunburst>
             </div>
         </div>
@@ -58,3 +59,13 @@ export default {
     }
 }
 </script>
+
+<style>
+    .margin{
+        margin-bottom: 35px;
+        background: "none";
+    }
+    .BKG{
+        background: #E1E3E8;
+    }
+</style>
