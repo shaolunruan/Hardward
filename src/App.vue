@@ -63,9 +63,9 @@ export default {
 <style>
     .margin{
         margin-bottom: 35px;
-        background: "none";
+        color: #E1E3E8;
     }
     .BKG{
-        background: #E1E3E8;
+        background-color: #E1E3E8;
     }
 </style>

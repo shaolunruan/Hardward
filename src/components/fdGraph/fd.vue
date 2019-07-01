@@ -291,6 +291,10 @@ for(let a in A0){
                 .on("drag", dragged)
                 .on("end", dragended)
             )
+            //以下给d3元素添加了鼠标点击事件
+            .on('click',(d)=>{
+                console.log(d.id);
+            })
 
 //想加标签显示节点的相关系数，失败。。以后一定好好学d3
 
