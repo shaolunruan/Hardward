@@ -10,6 +10,10 @@
 <script>
     import processData from './processData.js'
 
+    import {
+    data0
+} from './data0'
+
     export default {
 
         data: function() {
@@ -87,7 +91,7 @@
                             type: 'heatmap',
                             coordinateSystem: 'calendar',
                             calendarIndex: 0,
-                            data: this.data
+                            data: this.data0
                         }
                     ]
 
@@ -99,9 +103,10 @@
         mounted() {
             this.$axios.get('/usage')
                 .then((response) => {
-                    this.notdone = false;
-                    this.data = processData(response.data);
+                    // this.notdone = false;
+                    // this.data = processData(response.data);
                     //请求完成数据后渲染视图
+                    // console.log(this.data);
                     this.paintCalendar();
                 })
         }

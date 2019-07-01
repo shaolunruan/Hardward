@@ -34,7 +34,7 @@ module.exports = function (req, res, next) {
                 a.push(result[i].inst_name)
                 warningId.push(a)
             };
-
+            console.log(warningId);
             //promiss
 
 
@@ -56,6 +56,7 @@ module.exports = function (req, res, next) {
                     }
                     console.log(warningArray);
                     o.warningArray = warningArray;
+                    o.warningId = warningId
                     res.json(o);
                 })
 

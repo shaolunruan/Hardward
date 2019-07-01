@@ -9,7 +9,8 @@ let state = {
     data:[],
     counter:0,
     warningArray:[],
-    inst_name:''
+    inst_name:'',
+    warningId:[]
 };
 
 let getters = {
@@ -39,6 +40,10 @@ let mutations = {
 
     submitInst(state,d){
         state.inst_name = d
+    },
+
+    getmachine(state,d){
+        state.warningId = d
     }
 };
 
@@ -51,7 +56,7 @@ let actions = {
                     //将一个接口里的数据分成两部分，可以省下一个接口，不过速度偏慢
                     context.commit('getdata',res.data.result);
                     context.commit('getarray',res.data.warningArray)
-                    
+                    context.commit('getmachine',res.data.warningId)
                 });
     },
 
@@ -60,7 +65,20 @@ let actions = {
 // 该方法是在js文件中引用vuex 的状态参数的 
         let time = store.state.time_stamp;
         // console.log(time);
-        Vue.http.get(`/usage?id=${d}&name=${time}`)
+
+
+        let req_time_pre = d;
+        let req_time = ''
+    
+        let array = store.state.warningId
+        for(let i in array){
+            if(array[i][1] == req_time_pre){
+                req_time = array[i][0]
+            }
+        }
+        console.log(req_time);
+
+        Vue.http.get(`/usage?id=${req_time}&name=${time}`)
     }
 };
 
