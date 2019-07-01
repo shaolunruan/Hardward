@@ -303,3 +303,7 @@ echarts注意的是 不要乱用箭头函数 会改变this的指向
 3.上一个echarts的视图光芒图是监听的store中的状态，而calendar视图是直接在数据端口中返回的值，不知道可行不可行
 
 猜想，对比echarts的光芒图可能是没有监听到端口数据的更新，所以刷新不了
+
+
+总结：histGraph和calendarGarph未完成和tree视图的联动
+*********
