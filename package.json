@@ -16,7 +16,7 @@
     "prod": "node --max-old-space-size=100000000 node_modules\\@angular\\cli\\bin\\ng build --prod "
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^4.3.1",
     "d3": "^5.9.2",
     "echarts": "^4.2.1",
